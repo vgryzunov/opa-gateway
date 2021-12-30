@@ -1,0 +1,19 @@
+server:
+  port: 9000
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: https://smartid-dev.reinform.ru/iam/auth/realms/demo/protocol/openid-connect/certs
+
+
+logging:
+  level:
+    root: INFO
+    com.scg.service: TRACE
+    org.springframework.web: INFO
+    org.springframework.web.HttpLogging: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.security.oauth2: DEBUG
