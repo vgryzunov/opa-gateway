@@ -1,7 +1,6 @@
-package com.example.demo;
+package ru.reinform.demo;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -11,20 +10,20 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @SpringBootApplication
+@Slf4j
 public class ResourceServerApplication {
-    final Logger logger = LoggerFactory.getLogger(ResourceServerApplication.class);
-
     public static void main(String[] args) {
         SpringApplication.run(ResourceServerApplication.class, args);
     }
 
     @GetMapping("/resource")
     public String resource(@AuthenticationPrincipal Jwt jwt) {
-        logger.trace("***** JWT Headers: {}", jwt.getHeaders());
-        logger.trace("***** JWT Claims: {}", jwt.getClaims().toString());
-        logger.trace("***** JWT Token: {}", jwt.getTokenValue());
+        log.trace("***** JWT Headers: {}", jwt.getHeaders());
+        log.trace("***** JWT Claims: {}", jwt.getClaims().toString());
+        log.trace("***** JWT Token: {}", jwt.getTokenValue());
+
         return String.format("Resource accessed by: %s (with subjectId: %s)" ,
-                jwt.getClaims().get("user_name"),
+                jwt.getClaims().get("preferred_username"),
                 jwt.getSubject());
     }
 
