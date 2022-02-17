@@ -2,7 +2,6 @@ package ru.reinform.demo.data;
 
 import lombok.AccessLevel;
 import lombok.Data;
-import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
