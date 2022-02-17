@@ -1,0 +1,101 @@
+server:
+  port: 8888
+  error:
+    whitelabel:
+      enabled: true
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: INFO
+    org.springframework.web.HttpLogging: DEBUG
+    org.springframework.cloud.gateway: DEBUG
+    org.springframework.security.oauth2: DEBUG
+    org.springframework.security: DEBUG
+    ru.reinform.security.opa: DEBUG
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    gateway:
+      enabled: true
+
+spring:
+  application:
+    name: policygateway
+
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            provider: keycloak
+            client-id: smart-gateway
+            client-secret: 9Nu9ar5UPT7VB0tTmMRFQSX0WLQopq3q
+            scopes: openid
+            authorization-grant-type: authorization_code
+            redirect-uri-template: "{baseUrl}/login/oauth2/code/{registrationId}"
+
+        provider:
+          keycloak:
+            issuer-uri: https://keycloak.192.168.49.2.nip.io/iam/auth/realms/demo
+            token-uri: https://keycloak.192.168.49.2.nip.io/iam/auth/realms/demo/protocol/openid-connect/token
+            authorization-uri: https://keycloak.192.168.49.2.nip.io/iam/auth/realms/demo/protocol/openid-connect/auth
+            userinfo-uri: https://keycloak.192.168.49.2.nip.io/iam/auth/realms/demo/protocol/openid-connect/userinfo
+            user-name-attribute: preferred_username
+
+  cloud:
+    gateway:
+      httpclient:
+        ssl:
+          use-insecure-trust-manager: true
+      metrics:
+        enabled: true
+      routes:
+        - id: hello
+          uri: "http://10.77.3.117:9000/"
+          predicates:
+            - Path=/hello
+          filters:
+            - SetPath=/resource
+            - RemoveRequestHeader=Cookie
+            - RequestPolicyFilterFactory
+        - id: meeting-list
+          uri: "http://10.77.3.117:9000/"
+          predicates:
+            - Path=/meetings
+          filters:
+            - SetPath=/meetings
+            - RemoveRequestHeader=Cookie
+            - RequestPolicyFilterFactory
+        - id: executor-list
+          uri: "http://10.77.3.117:9000/"
+          predicates:
+            - Path=/executors
+          filters:
+            - SetPath=/executors
+            - RemoveRequestHeader=Cookie
+            - RequestPolicyFilterFactory
+        - id: assignment-list
+          uri: "http://10.77.3.117:9000/"
+          predicates:
+            - Path=/assignments
+          filters:
+            - SetPath=/assignments
+            - RemoveRequestHeader=Cookie
+            - RequestPolicyFilterFactory
+        - id: keycloak
+          uri: "https://keycloak.192.168.49.2.nip.io/iam"
+          predicates:
+            - Path=/iam/**
+          filters:
+            - RewritePath=/iam/(?<remains>.*), /iam/${remains}
+
+      default-filters:
+        - TokenRelay
+
+opa:
+  url: http://localhost:8181/v1/data/resource/service/allow

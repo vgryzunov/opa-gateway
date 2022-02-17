@@ -1,17 +1,15 @@
 package ru.reinform.security.smartgateway.filters;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
 @Component
+@Slf4j
 public class SampleGatewayFilterFactory
         extends AbstractGatewayFilterFactory<SampleGatewayFilterFactory.Config> {
-
-    final Logger logger = LoggerFactory.getLogger(SampleGlobalFilter.class);
 
     public SampleGatewayFilterFactory() {
         super(Config.class);
@@ -20,9 +18,9 @@ public class SampleGatewayFilterFactory
     @Override
     public GatewayFilter apply(Config config) {
         return ((exchange, chain) -> {
-            logger.info("sample gateway  filter - pre-processing");
+            log.info("sample gateway filter - pre-processing");
             return chain.filter(exchange)
-                    .then(Mono.fromRunnable( () -> logger.info("sample gateway filter - post-processing")));
+                    .then(Mono.fromRunnable( () -> log.info("sample gateway filter - post-processing")));
 
         });
     }

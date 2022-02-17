@@ -12,10 +12,19 @@ public class SecurityConfig {
 
     @Bean
     public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) {
-        http.authorizeExchange(exchanges -> exchanges.anyExchange().authenticated()
-                .and()
-                .oauth2Login()); //redirect to login page
         http.csrf().disable();
+
+        http.authorizeExchange()
+                .pathMatchers("/iam/**").permitAll()
+             .and()
+                .authorizeExchange(
+                        exchanges -> exchanges.anyExchange()
+                                .authenticated()
+                                .and()
+                                .oauth2Login()
+                )
+        ;
+
         return http.build();
     }
 }

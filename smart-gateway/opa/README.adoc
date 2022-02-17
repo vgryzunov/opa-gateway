@@ -1,0 +1,11 @@
+= Starting Open Policy Agent
+
+Application needs Open Policy Agent (OPA).
+To start it Linux, use this command:
+
+[source,console]
+----
+$ ./bin/opa_linux_amd64 run -s -w sample.rego 
+----
+
+To start OPA in MacOS X or Windows, download corresponding executable from https://www.openpolicyagent.org/

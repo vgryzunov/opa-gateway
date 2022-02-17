@@ -1,0 +1,41 @@
+{
+  "exp": 1645099162,
+  "iat": 1645098862,
+  "auth_time": 1645098862,
+  "jti": "7f8d48e6-a892-49fb-98e7-aaec39b9324c",
+  "iss": "https://keycloak.192.168.49.2.nip.io/iam/auth/realms/demo",
+  "aud": "account",
+  "sub": "d08bb3c9-c6ca-43c0-841d-1a0e6398983e",
+  "typ": "Bearer",
+  "azp": "smart-gateway",
+  "session_state": "4ac803af-7928-46b8-8ced-cad8c63f01cc",
+  "acr": "1",
+  "realm_access": {
+    "roles": [
+      "offline_access",
+      "uma_authorization",
+      "default-roles-demo"
+    ]
+  },
+  "resource_access": {
+    "smart-gateway": {
+      "roles": [
+        "staff"
+      ]
+    },
+    "account": {
+      "roles": [
+        "manage-account",
+        "manage-account-links",
+        "view-profile"
+      ]
+    }
+  },
+  "scope": "profile email",
+  "sid": "4ac803af-7928-46b8-8ced-cad8c63f01cc",
+  "email_verified": false,
+  "name": "1 Ivanov",
+  "preferred_username": "ivanov1",
+  "given_name": "1",
+  "family_name": "Ivanov"
+}
