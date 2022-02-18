@@ -10,9 +10,9 @@ allow  {
     jwt.payload.resource_access["smart-gateway"].roles[i] == "staff2"
     }
 
-# Helper to get the token payload.
-jwt = {"payload": payload} {
+# Helper to get token header and payload.
+jwt = {"header": header, "payload": payload} {
     auth_header := input.headers["Authorization"][0]
     [_, jwt] := split(auth_header, " ")
-    [_, payload, _] := io.jwt.decode(jwt)
+    [header, payload, _] := io.jwt.decode(jwt)
     }
