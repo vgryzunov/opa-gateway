@@ -29,9 +29,9 @@ public class RequestPolicyFilterFactory extends AbstractGatewayFilterFactory<Req
     public GatewayFilter apply(Config config) {
         return ((exchange, chain) -> {
             log.info("preparing data...");
-            boolean allowed = requestPolicyArbiter.decide(exchange);
-            log.info("allowed: {}", allowed);
-            if (!allowed) {
+            boolean allow = requestPolicyArbiter.decide(exchange);
+            log.info("allow: {}", allow);
+            if (!allow) {
                 log.info("Access denied");
                 return Mono.error(new ResponseStatusException(HttpStatus.FORBIDDEN, "Policy restrictions"));
             }
