@@ -5,7 +5,7 @@ To start OPA Linux with sample policy, use this command:
 
 [source,console]
 ----
-$ ./bin/opa_linux_amd64 run -s -w sample-policy.rego
+$ ./bin/opa_linux_amd64 run -s -w ./policy/sample-policy.rego
 ----
 
 To start OPA in MacOS X or Windows, download corresponding executable from https://www.openpolicyagent.org/

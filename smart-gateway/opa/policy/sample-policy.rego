@@ -7,7 +7,7 @@ allow  {
     input.path[3] == "meetings"
 
     some i
-    jwt.payload.resource_access["smart-gateway"].roles[i] == "staff2"
+    jwt.payload.resource_access["smart-gateway"].roles[i] == "staff"
     }
 
 # Helper to get token header and payload.
