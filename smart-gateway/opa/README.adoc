@@ -8,12 +8,4 @@ To start OPA Linux with sample policy, use this command:
 $ ./bin/opa_linux_amd64 run -s -w sample-policy.rego
 ----
 
-To start OPA with policy which "always allow", run:
-[source,console]
-----
-$ ./bin/opa_linux_amd64 run -s -w always-allow.rego
-----
-This policy ignores input.
-
-
 To start OPA in MacOS X or Windows, download corresponding executable from https://www.openpolicyagent.org/
