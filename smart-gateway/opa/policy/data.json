@@ -1,0 +1,20 @@
+{
+  "resources": [
+    {
+      "url": "assignments",
+      "method": "GET",
+      "roles": [
+          "staff",
+          "managers"
+        ]
+      },
+    {
+      "url": "meetings",
+      "method": "GET",
+      "roles": [
+        "staff",
+        "managers"
+      ]
+    }
+  ]
+}
