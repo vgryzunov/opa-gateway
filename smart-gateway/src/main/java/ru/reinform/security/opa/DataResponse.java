@@ -4,5 +4,5 @@ import lombok.Data;
 
 @Data
 public class DataResponse {
-    private boolean result;
+    private Decision result;
 }

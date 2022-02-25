@@ -2,13 +2,13 @@ package resource.service
 
 import data
 
-default allow = false
+default authorizrd = { "allow" : false, "name" : "" }
 
 client := "smart-gateway"
 
 client_roles := jwt.payload.resource_access[client].roles
 
-allow {
+authorized = { "allow": true, "name": jwt.payload.preferred_username } {
 	data.resources[x].url == input.path[3]
 	data.resources[x].method == input.method
 
