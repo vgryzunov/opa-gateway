@@ -1,0 +1,15 @@
+decision_logs:
+  console: true
+
+services:
+  - name: keycloak
+    url: https://smartid.reinform.ru/iam/auth/realms/
+
+bundles:
+  authz:
+    service: keycloak
+    resource: demo
+    persist: true
+    polling:
+      min_delay_seconds: 10
+      max_delay_seconds: 20

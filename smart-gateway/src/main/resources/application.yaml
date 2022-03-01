@@ -98,4 +98,4 @@ spring:
         - TokenRelay
 
 opa:
-  url: http://localhost:8181/v1/data/resource/service/allow
+  url: http://localhost:8181/v1/data/authz/authorized

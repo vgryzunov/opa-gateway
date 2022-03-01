@@ -1,11 +1,25 @@
 = Starting Open Policy Agent
 
 Application needs Open Policy Agent (OPA).
+
+Creating bundle file:
+[source,console]
+----
+$ tar -czvf ../bundle.tar.gz * .manifest
+----
+in directory bundle
+
 To start OPA Linux with sample policy, use this command:
 
 [source,console]
 ----
-$ ./bin/opa_linux_amd64 run -s -w ./policy/sample-policy.rego
+$ ./bin/opa_linux_amd64 run -s -w bundle.tar.gz  --log-level debug
+----
+
+While debugging bundle you may run OPA like this:
+[source,console]
+----
+./bin/opa_linux_amd64 run -s -w ./bundle  --log-level debug
 ----
 
 To start OPA in MacOS X or Windows, download corresponding executable from https://www.openpolicyagent.org/

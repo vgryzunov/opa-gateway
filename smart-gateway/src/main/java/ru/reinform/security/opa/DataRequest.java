@@ -20,7 +20,7 @@ public class DataRequest {
 
     public String toString() {
         try {
-            return mapper.writeValueAsString(input);
+            return mapper.writeValueAsString(this);
         } catch (JsonProcessingException e) {
             log.error("Cannot serialize OPA input", e);
             return "";

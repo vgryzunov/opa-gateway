@@ -1,0 +1,7 @@
+{
+  "realm": "demo",
+  "public_key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiQ4xGuePtbf1lZILcITu3nmYpToHIbGiFabEv/pS/vkGQnswnaUyQBQIo5H85otZoL2ZkzNOPU1V98YHvos6KQ/Ige5lyt/FMxFMIaXlY8Wp4FFMC2XsxlgWPFCXKE5Q2zsG5DpCIlCAdMbq09hBu3Md7O57vImYiZncxvBTALpwEz+lMWnKjBwfREW2wG/RBOQBpQgGHZPmKzLlcwuUgIX+3EY6qYg6LaK0HEhjq2Qs3vyFiy38DyV8ezPxpPf1Zo6opVWWGNYAv7Aue0rRj5wxQeRgLDpZQXUgTMSjAj5+sY0O5YtTnlZVgrTXLl79TQISiKEDwnmvnkc8jv60gQIDAQAB",
+  "token-service": "https://keycloak.192.168.49.2.nip.io/iam/auth/realms/demo/protocol/openid-connect",
+  "account-service": "https://keycloak.192.168.49.2.nip.io/iam/auth/realms/demo/account",
+  "tokens-not-before": 0
+}

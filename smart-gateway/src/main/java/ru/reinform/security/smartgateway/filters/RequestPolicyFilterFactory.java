@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
+import ru.reinform.security.opa.Result;
 import ru.reinform.security.opa.RequestPolicyArbiter;
 
 @Slf4j
@@ -29,15 +30,21 @@ public class RequestPolicyFilterFactory extends AbstractGatewayFilterFactory<Req
     public GatewayFilter apply(Config config) {
         return ((exchange, chain) -> {
             log.info("preparing data...");
-            boolean allow = requestPolicyArbiter.decide(exchange);
-            log.info("allow: {}", allow);
-            if (!allow) {
-                log.info("Access denied");
+            Result result = requestPolicyArbiter.decide(exchange);
+            if (result == null) {
+                log.error("Decision is null!");
+                return Mono.error(new ResponseStatusException(HttpStatus.FORBIDDEN, "Policy restrictions"));
+            }
+
+            log.debug("allowed: {}, name: {}", result.isAllowed(), result.getName());
+
+            if (!result.isAllowed()) {
+                log.info("Access for subject  \"{}\" is denied", result.getName());
                 return Mono.error(new ResponseStatusException(HttpStatus.FORBIDDEN, "Policy restrictions"));
             }
 
             return chain.filter(exchange)
-                    .then(Mono.fromRunnable( () -> log.debug("passed")));
+                    .then(Mono.fromRunnable( () -> log.debug("Passed authorization filter")));
 
         });
     }

@@ -1,38 +1,40 @@
 {
-  "path": [
-    "http:",
-    "",
-    "10.77.3.117:8888",
-    "meetings"
-  ],
-  "headers": {
-    "Host": [
-      "10.77.3.117:8888"
+  "input": {
+    "path": [
+      "http:",
+      "",
+      "10.77.3.117:8888",
+      "meetings"
     ],
-    "Connection": [
-      "keep-alive"
-    ],
-    "Cache-Control": [
-      "max-age=0"
-    ],
-    "Upgrade-Insecure-Requests": [
-      "1"
-    ],
-    "User-Agent": [
-      "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36"
-    ],
-    "Accept": [
-      "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9"
-    ],
-    "Accept-Encoding": [
-      "gzip, deflate"
-    ],
-    "Accept-Language": [
-      "en-US,en;q=0.9"
-    ],
-    "Authorization": [
-      "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJkWXd6bkY3WkxxMWFoVGN6RzNWOEdqSVZVYlFrY01yWVIzWF9KeVJ6RHA4In0.eyJleHAiOjE2NDUwOTkxNjIsImlhdCI6MTY0NTA5ODg2MiwiYXV0aF90aW1lIjoxNjQ1MDk4ODYyLCJqdGkiOiI3ZjhkNDhlNi1hODkyLTQ5ZmItOThlNy1hYWVjMzliOTMyNGMiLCJpc3MiOiJodHRwczovL2tleWNsb2FrLjE5Mi4xNjguNDkuMi5uaXAuaW8vaWFtL2F1dGgvcmVhbG1zL2RlbW8iLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiZDA4YmIzYzktYzZjYS00M2MwLTg0MWQtMWEwZTYzOTg5ODNlIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoic21hcnQtZ2F0ZXdheSIsInNlc3Npb25fc3RhdGUiOiI0YWM4MDNhZi03OTI4LTQ2YjgtOGNlZC1jYWQ4YzYzZjAxY2MiLCJhY3IiOiIxIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iLCJkZWZhdWx0LXJvbGVzLWRlbW8iXX0sInJlc291cmNlX2FjY2VzcyI6eyJzbWFydC1nYXRld2F5Ijp7InJvbGVzIjpbInN0YWZmIl19LCJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJzaWQiOiI0YWM4MDNhZi03OTI4LTQ2YjgtOGNlZC1jYWQ4YzYzZjAxY2MiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiIxIEl2YW5vdiIsInByZWZlcnJlZF91c2VybmFtZSI6Iml2YW5vdjEiLCJnaXZlbl9uYW1lIjoiMSIsImZhbWlseV9uYW1lIjoiSXZhbm92In0.AfWZ2FGTgf9NJi62uGQT2ydaF_HCBAka7vFYOJtWksteJPuEnuEJ73liZ99csG6BhLWmPs8lVZKzabZk-jWkvF82dApl9eXaajQmlrHZrVakBUaVL_eylrAKlxpOlUTxvNd-6oM9q6u-eQY4N0srLP8F4Pv8r-KrTeqw47sAE4fy5yjkoDf2JGaVp0WxKBTn2XT-Poa4kT0S9Yy_HS9IskQnx5kb-C58mCSdHol-lu-fpjpNwLhNdLkc8XSSsZgvxCMzsSd4926kqWQ692Xw1tn-0CU15Ua95dySkRtKKA-_Zonec16zC9dygdYfXly9ZJnGWB5A7ZQxTTlmw_JO8Q"
-    ]
-  },
-  "method": "GET"
+    "headers": {
+      "Host": [
+        "10.77.3.117:8888"
+      ],
+      "Connection": [
+        "keep-alive"
+      ],
+      "Cache-Control": [
+        "max-age=0"
+      ],
+      "Upgrade-Insecure-Requests": [
+        "1"
+      ],
+      "User-Agent": [
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36"
+      ],
+      "Accept": [
+        "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9"
+      ],
+      "Accept-Encoding": [
+        "gzip, deflate"
+      ],
+      "Accept-Language": [
+        "en-US,en;q=0.9"
+      ],
+      "Authorization": [
+        "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJkWXd6bkY3WkxxMWFoVGN6RzNWOEdqSVZVYlFrY01yWVIzWF9KeVJ6RHA4In0.eyJleHAiOjE2NDYxMzYyNjcsImlhdCI6MTY0NjEzNTk2NywiYXV0aF90aW1lIjoxNjQ2MTM1OTY3LCJqdGkiOiIyYjA5ODE0OC03ZWYzLTRkMTctODk1Ni01OWJmOGEyMGUyOWIiLCJpc3MiOiJodHRwczovL2tleWNsb2FrLjE5Mi4xNjguNDkuMi5uaXAuaW8vaWFtL2F1dGgvcmVhbG1zL2RlbW8iLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiZDA4YmIzYzktYzZjYS00M2MwLTg0MWQtMWEwZTYzOTg5ODNlIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoic21hcnQtZ2F0ZXdheSIsInNlc3Npb25fc3RhdGUiOiIxYjljNWQxMC1lYzlhLTQ1ZjYtOWUxMS0wODcxZmY2ZTcwZTkiLCJhY3IiOiIxIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iLCJkZWZhdWx0LXJvbGVzLWRlbW8iXX0sInJlc291cmNlX2FjY2VzcyI6eyJzbWFydC1nYXRld2F5Ijp7InJvbGVzIjpbInN0YWZmIl19LCJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJzaWQiOiIxYjljNWQxMC1lYzlhLTQ1ZjYtOWUxMS0wODcxZmY2ZTcwZTkiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiIxIEl2YW5vdiIsInByZWZlcnJlZF91c2VybmFtZSI6Iml2YW5vdjEiLCJnaXZlbl9uYW1lIjoiMSIsImZhbWlseV9uYW1lIjoiSXZhbm92In0.ZHYxnMKMM5xx21vYfVK_W_xJpJV2zZcT4ZSTpghWc9KX-FdR2WHMS3UMfN6i3NCEsMhHEyqHiwZhQCmmtGLuiOrH_0JOnxW9FXEkhudOl573txfkrRoTOiUs_P6sHrhMq4Voq8xCYVPeKlnhSL6Vm764Gi9uPh1XN2Hez5Sg3_XEvmpfsa4cPwEesz-jlai0jUVlbPvqLycptLfOGeN9PuBPl-AhPcKKEyhXihotkFYEZ6PWX9zPCYOnDifQpsAUKAWBUJWWrgTzN5r-JuCX2sU_8UppImdYdgvRtye9ibsEISrzqzY67mPHZptVJC7chZU2XrAjDZLirox21wOJqg"
+      ]
+    },
+    "method": "GET"
+  }
 }

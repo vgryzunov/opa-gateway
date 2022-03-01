@@ -15,7 +15,7 @@ import org.springframework.web.server.ServerWebExchange;
 public class RequestPolicyArbiter {
     @Value("${opa.url}") String opaURL;
 
-    public boolean decide(ServerWebExchange exchange) {
+    public Result decide(ServerWebExchange exchange) {
 
         ServerHttpRequest request = exchange.getRequest();
 
@@ -33,6 +33,6 @@ public class RequestPolicyArbiter {
 
         DataResponse opaResponse = client.postForObject(opaURL, opaRequest, DataResponse.class);
 
-        return opaResponse != null && opaResponse.isResult();
+        return opaResponse.getResult();
     }
 }
