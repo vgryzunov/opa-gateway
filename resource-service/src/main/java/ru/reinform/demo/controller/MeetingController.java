@@ -6,10 +6,6 @@ import ru.reinform.demo.data.Meeting;
 import ru.reinform.demo.service.DataService;
 
 import java.util.Collection;
-import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @RestController
 public class MeetingController {
