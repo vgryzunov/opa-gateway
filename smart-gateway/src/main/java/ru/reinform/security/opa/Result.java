@@ -6,4 +6,5 @@ import lombok.Data;
 public class Result {
     private boolean allowed;
     private String name;
+    private boolean tokenValid;
 }

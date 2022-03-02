@@ -1,4 +1,4 @@
 {
     "revision" : "0.0.1",
-    "roots" : ["iam", "authz"]
+    "roots" : ["authz", "certs"]
 }

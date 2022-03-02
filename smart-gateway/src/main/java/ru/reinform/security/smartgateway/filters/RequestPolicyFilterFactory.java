@@ -36,10 +36,12 @@ public class RequestPolicyFilterFactory extends AbstractGatewayFilterFactory<Req
                 return Mono.error(new ResponseStatusException(HttpStatus.FORBIDDEN, "Policy restrictions"));
             }
 
-            log.debug("allowed: {}, name: {}", result.isAllowed(), result.getName());
+            log.debug("allowed: {}, name: {}, tokenValid: {}", result.isAllowed(), result.getName()
+                    , result.isTokenValid());
 
-            if (!result.isAllowed()) {
-                log.info("Access for subject  \"{}\" is denied", result.getName());
+            if (!result.isAllowed() || !result.isTokenValid()) {
+                log.info("Access for subject  \"{}\" is denied: allowed by OPA: {}, token is valid: {}"
+                        , result.getName(), result.isAllowed(), result.isTokenValid());
                 return Mono.error(new ResponseStatusException(HttpStatus.FORBIDDEN, "Policy restrictions"));
             }
 
