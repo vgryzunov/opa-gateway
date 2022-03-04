@@ -6,17 +6,18 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ru.reinform.bundleserver.data.Bundle;
+import ru.reinform.bundleserver.data.ResponseBundle;
 import ru.reinform.bundleserver.service.BundleService;
+import ru.reinform.bundleserver.service.CertsDataService;
 
 import java.io.IOException;
 
 @RestController
 public class BundleController {
-    private final BundleService bs;
+    private final BundleService bundleService;
 
     public BundleController(BundleService bs) {
-        this.bs = bs;
+        this.bundleService = bs;
     }
 
     @GetMapping(value="/data.tar.gz",
@@ -29,7 +30,7 @@ public class BundleController {
         headers.add("Pragma", "no-cache");
         headers.add("Expires", "0");
 
-        Bundle bundle = bs.getBundle();
+        ResponseBundle bundle = bundleService.getBundle();
 
         return ResponseEntity
                 .ok()
