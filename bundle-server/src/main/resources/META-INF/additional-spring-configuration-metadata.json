@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "opa.bundle.roots",
+      "type": "java.lang.String",
+      "description": "Description for opa.bundle.manifest.roots."
+    },
+    {
+      "name": "opa.bundle.revision",
+      "type": "java.lang.String",
+      "description": "Description for opa.bundle.revision."
+    }
+  ] }

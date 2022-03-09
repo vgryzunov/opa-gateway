@@ -1,3 +1,20 @@
+opa:
+  bundle:
+    revision: 0.0.1
+    roots:
+      - name: "authz"
+        targets:
+          - target: data.json
+            type: resource
+            uri:  authz/data.json
+          - target: policy.rego
+            type: resource
+            uri:  authz/policy.rego
+      - name: "certs"
+        targets:
+          - target: certs/data.json
+            type: http
+            uri: https://keycloak.192.168.49.2.nip.io/iam/auth/realms/ext-dev/protocol/openid-connect/certs
 
 endpoints:
   certs: https://keycloak.192.168.49.2.nip.io/iam/auth/realms/ext-dev/protocol/openid-connect/certs
