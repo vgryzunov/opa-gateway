@@ -2,13 +2,13 @@ decision_logs:
   console: true
 
 services:
-  - name: keycloak
-    url: https://smartid.reinform.ru/iam/auth/realms/
+  - name: bunble-server
+    url: http://localhost:8080
 
 bundles:
   authz:
-    service: keycloak
-    resource: demo
+    service: bunble-server
+    resource: data.tar.gz
     persist: true
     polling:
       min_delay_seconds: 10

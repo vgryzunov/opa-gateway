@@ -1,4 +1,5 @@
 package ru.reinform.bundleserver.service;
+import org.apache.commons.compress.compressors.gzip.GzipCompressorOutputStream;
 import ru.reinform.bundleserver.config.BundleConfigProperties;
 
 import lombok.extern.slf4j.Slf4j;
@@ -39,13 +40,15 @@ public class BundleService {
         List<BundleRoot> roots = bundleConfiguration.getBundleProperties().getRoots();
 
         ByteArrayOutputStream bundleOutputStream = new ByteArrayOutputStream();
-        TarArchiveOutputStream tos = new TarArchiveOutputStream(bundleOutputStream);
+        GzipCompressorOutputStream gzOut = new GzipCompressorOutputStream(bundleOutputStream);
+        TarArchiveOutputStream tos = new TarArchiveOutputStream(gzOut);
 
         addEntry(tos, ".manifest", manifest);
 
         for (BundleRoot r : roots) {
             addBundleRoot(tos, r);
         }
+        tos.finish();
 
         byte[] ba = bundleOutputStream.toByteArray();
         InputStream bundleInputStream = new ByteArrayInputStream(ba);

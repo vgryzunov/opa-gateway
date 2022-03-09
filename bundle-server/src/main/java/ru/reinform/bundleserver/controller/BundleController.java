@@ -28,6 +28,7 @@ public class BundleController {
         headers.add("Cache-Control", "no-cache, no-store, must-revalidate");
         headers.add("Pragma", "no-cache");
         headers.add("Expires", "0");
+        headers.add("Content-Type", "application/gzip");
 
         ResponseBundle bundle = bundleService.getBundle();
 
