@@ -39,20 +39,38 @@ public class BundleService {
 
         List<BundleRoot> roots = bundleConfiguration.getBundleProperties().getRoots();
 
-        ByteArrayOutputStream bundleOutputStream = new ByteArrayOutputStream();
-        GzipCompressorOutputStream gzipOutputStream = new GzipCompressorOutputStream(bundleOutputStream);
-        TarArchiveOutputStream tarOutputStream = new TarArchiveOutputStream(gzipOutputStream);
+        ByteArrayOutputStream byteArrayOutputStream;
+        BufferedOutputStream bufferedOutputStream = null;
+        GzipCompressorOutputStream gzipOutputStream = null;
+        TarArchiveOutputStream tarOutputStream = null;
 
-        addEntry(tarOutputStream, ".manifest", manifest);
+        try {
+            byteArrayOutputStream = new ByteArrayOutputStream();
+            bufferedOutputStream = new BufferedOutputStream(byteArrayOutputStream);
+            gzipOutputStream = new GzipCompressorOutputStream(bufferedOutputStream);
+            tarOutputStream = new TarArchiveOutputStream(gzipOutputStream);
 
-        for (BundleRoot r : roots) {
-            addBundleRoot(tarOutputStream, r);
+            addEntry(tarOutputStream, ".manifest", manifest);
+
+            for (BundleRoot r : roots) {
+                addBundleRoot(tarOutputStream, r);
+            }
+        } finally {
+            if (tarOutputStream != null) {
+                tarOutputStream.finish();
+                tarOutputStream.close();
+            }
+            if (gzipOutputStream != null) {
+                gzipOutputStream.close();
+            }
+            if (bufferedOutputStream != null) {
+                bufferedOutputStream.close();
+            }
         }
-        tarOutputStream.finish();
 
-        byte[] ba = bundleOutputStream.toByteArray();
-        InputStream bundleInputStream = new ByteArrayInputStream(ba);
-        return new ResponseBundle(bundleInputStream, (long)ba.length);
+        byte[] ba = byteArrayOutputStream.toByteArray();
+        InputStream byteArrayInputStream = new ByteArrayInputStream(ba);
+        return new ResponseBundle(byteArrayInputStream, (long)ba.length);
     }
 
     private String buildManifest() {
