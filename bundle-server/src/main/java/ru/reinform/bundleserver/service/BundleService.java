@@ -18,20 +18,41 @@ import java.util.StringJoiner;
 @Service
 @Slf4j
 public class BundleService {
-    private final CertsDataService certsDataService;
+    private final WebDataService webDataService;
     private final ResourceDataService resourceDataService;
     private final BundleConfiguration bundleConfiguration;
 
-    public BundleService(CertsDataService cs,
+    public BundleService(WebDataService ws,
                          ResourceDataService rs,
                          BundleConfiguration bc) {
-        this.certsDataService = cs;
+        this.webDataService = ws;
         this.resourceDataService = rs;
         this.bundleConfiguration = bc;
     }
 
+
     public ResponseBundle getBundle() throws IOException {
 
+        String manifest = this.buildManifest();
+        log.info("Manifest: \n{}", manifest);
+
+        List<BundleRoot> roots = bundleConfiguration.getBundleProperties().getRoots();
+
+        ByteArrayOutputStream bundleOutputStream = new ByteArrayOutputStream();
+        TarArchiveOutputStream tos = new TarArchiveOutputStream(bundleOutputStream);
+
+        addEntry(tos, ".manifest", manifest);
+
+        for (BundleRoot r : roots) {
+            addBundleRoot(tos, r);
+        }
+
+        byte[] ba = bundleOutputStream.toByteArray();
+        InputStream bundleInputStream = new ByteArrayInputStream(ba);
+        return new ResponseBundle(bundleInputStream, (long)ba.length);
+    }
+
+    private String buildManifest() {
         BundleConfigProperties bc = bundleConfiguration.getBundleProperties();
 
         String revision = bc.getRevision();
@@ -42,30 +63,43 @@ public class BundleService {
         mb.append("    \"roots\" : [");
 
         StringJoiner joiner = new StringJoiner(", ");
-        roots.stream().forEach(r -> joiner.add( String.format("\"%s\"", r.getName())));
+        roots.forEach(r -> joiner.add( String.format("\"%s\"", r.getName())));
         mb.append(joiner);
 
         mb.append("]\n}");
+        return mb.toString();
+    }
 
-        log.info("Manifest: \n{}", mb);
+    private void addBundleRoot(TarArchiveOutputStream tos, BundleRoot root)  throws IOException {
+        for (BundleTarget t : root.getTargets()) {
+            addBundleTarget(tos, t);
+        }
+    }
 
-        ByteArrayOutputStream bundleOutputStream = new ByteArrayOutputStream();
-        TarArchiveOutputStream tos = new TarArchiveOutputStream(bundleOutputStream);
+    private void addBundleTarget(TarArchiveOutputStream tos, BundleTarget target) throws IOException {
+        String ty = target.getType();
 
-        addEntry(tos, certsDataService.getCertsData(), "certs/data.json");
-        addResourceEntry(tos, "authz/policy.rego");
-        addResourceEntry(tos, "authz/data.json");
+        if (ty == null){
+            throw new IllegalArgumentException("\"bundle.roots[].targets[].type is null\"");
+        }
 
-        addEntry(tos, mb.toString(), ".manifest");
+        if (ty.equals("resource")) {
+            addResourceTarget(tos, target.getTarget(), target.getUri() );
+        } else if (ty.equals("http")) {
+            addHttpTarget(tos, target.getTarget(), target.getUri());
+        } else {
+            throw new IllegalArgumentException("Invalid bundle.roots[].targets[].type: " + ty);
+        }
+    }
 
-        byte[] ba = bundleOutputStream.toByteArray();
-        InputStream bundleInputStream = new ByteArrayInputStream(ba);
-        return new ResponseBundle(bundleInputStream, (long)ba.length);
+    private void addHttpTarget(TarArchiveOutputStream tos, String target, String uri) throws IOException {
+        String httpData = webDataService.getHttpData(uri);
+        addEntry(tos, target, httpData);
     }
 
     private void addEntry(TarArchiveOutputStream tos,
-                          @NotNull String contents, String name) throws IOException {
-        TarArchiveEntry entry = new TarArchiveEntry(name);
+                          String target, @NotNull String contents ) throws IOException {
+        TarArchiveEntry entry = new TarArchiveEntry(target);
         long length = contents.length();
         entry.setSize(length);
         tos.putArchiveEntry(entry);
@@ -75,16 +109,17 @@ public class BundleService {
         tos.closeArchiveEntry();
     }
 
-    private void addResourceEntry(TarArchiveOutputStream tos, String name) throws IOException {
-        InputStream resourceStream = resourceDataService.getResourceStream(name);
+    private void addResourceTarget(TarArchiveOutputStream tos, String target, String uri) throws IOException {
+        InputStream resourceStream = resourceDataService.getResourceStream(uri);
 
-        TarArchiveEntry entry = new TarArchiveEntry(name);
+        TarArchiveEntry entry = new TarArchiveEntry(target);
         byte[] buf = new byte[4096];
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
 
         int length;
         int size = 0;
         while ((length = resourceStream.read(buf)) > 0) {
+
             size += length;
             byteArrayOutputStream.write(buf, 0, length);
         }

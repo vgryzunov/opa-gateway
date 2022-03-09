@@ -4,10 +4,10 @@ opa:
     roots:
       - name: "authz"
         targets:
-          - target: data.json
+          - target: authz/data.json
             type: resource
             uri:  authz/data.json
-          - target: policy.rego
+          - target: authz/policy.rego
             type: resource
             uri:  authz/policy.rego
       - name: "certs"
@@ -15,6 +15,3 @@ opa:
           - target: certs/data.json
             type: http
             uri: https://keycloak.192.168.49.2.nip.io/iam/auth/realms/ext-dev/protocol/openid-connect/certs
-
-endpoints:
-  certs: https://keycloak.192.168.49.2.nip.io/iam/auth/realms/ext-dev/protocol/openid-connect/certs

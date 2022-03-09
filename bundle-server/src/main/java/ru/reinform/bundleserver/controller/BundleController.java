@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.reinform.bundleserver.data.ResponseBundle;
 import ru.reinform.bundleserver.service.BundleService;
-import ru.reinform.bundleserver.service.CertsDataService;
 
 import java.io.IOException;
 
