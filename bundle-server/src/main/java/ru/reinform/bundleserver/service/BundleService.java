@@ -40,15 +40,15 @@ public class BundleService {
         List<BundleRoot> roots = bundleConfiguration.getBundleProperties().getRoots();
 
         ByteArrayOutputStream bundleOutputStream = new ByteArrayOutputStream();
-        GzipCompressorOutputStream gzOut = new GzipCompressorOutputStream(bundleOutputStream);
-        TarArchiveOutputStream tos = new TarArchiveOutputStream(gzOut);
+        GzipCompressorOutputStream gzipOutputStream = new GzipCompressorOutputStream(bundleOutputStream);
+        TarArchiveOutputStream tarOutputStream = new TarArchiveOutputStream(gzipOutputStream);
 
-        addEntry(tos, ".manifest", manifest);
+        addEntry(tarOutputStream, ".manifest", manifest);
 
         for (BundleRoot r : roots) {
-            addBundleRoot(tos, r);
+            addBundleRoot(tarOutputStream, r);
         }
-        tos.finish();
+        tarOutputStream.finish();
 
         byte[] ba = bundleOutputStream.toByteArray();
         InputStream bundleInputStream = new ByteArrayInputStream(ba);
