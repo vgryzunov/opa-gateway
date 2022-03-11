@@ -19,7 +19,7 @@ public class BundleController {
         this.bundleService = bs;
     }
 
-    @GetMapping(value="/data.tar.gz",
+    @GetMapping(value="/bundle.tar.gz",
             produces= MediaType.APPLICATION_OCTET_STREAM_VALUE
     )
     ResponseEntity<InputStreamResource> data() throws IOException {

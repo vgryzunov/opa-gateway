@@ -6,10 +6,10 @@ services:
     url: http://localhost:8080
 
 bundles:
-  authz:
+  rbac:
     service: bunble-server
-    resource: data.tar.gz
+    resource: bundle.tar.gz
     persist: true
     polling:
-      min_delay_seconds: 10
-      max_delay_seconds: 20
+      min_delay_seconds: 6
+      max_delay_seconds: 30

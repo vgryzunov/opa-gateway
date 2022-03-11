@@ -1,15 +1,15 @@
 package authz
 
 import input
-import data.authz
+import data.authz.resources
 import data.certs
 
 default authorized = { "allowed" : false, "name" : null, "tokenValid": null}
 
 authorized = { "allowed": true, "name": jwt.payload.preferred_username,
                "tokenValid": token_valid} {
-	authz.resources[x].url == input.path[3]
-	authz.resources[x].method == input.method
+	resources[x].url == input.path[3]
+	resources[x].method == input.method
 
 	some i, j
 	client_roles[i] == roles_allowed[j]
@@ -20,8 +20,8 @@ client := "smart-gateway"
 client_roles := jwt.payload.resource_access[client].roles
 
 roles_allowed = result {
-    authz.resources[x].url = input.path[3]
-    result = authz.resources[x].roles
+    resources[x].url = input.path[3]
+    result = resources[x].roles
 }
 
 # Cert with corresponding kid
@@ -42,5 +42,17 @@ jwt = {"header": header, "payload": payload} {
 	[header, payload, _] := io.jwt.decode(jwt_encoded)
 }
 
+t1 = resources
+t2 = input
+t3 = certs.keys
+t4 = jwt.header
+t5 {
+         some i
+         certs.keys[i].kid == jwt.header.kid
+     }
 
+t6 = certs.keys[1].kid
+t7 = certs.keys[0].kid
+t8 = jwt.header.kid
+t10 = certs
 

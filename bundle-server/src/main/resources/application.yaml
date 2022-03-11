@@ -10,8 +10,12 @@ opa:
           - target: authz/policy.rego
             type: resource
             uri:  authz/policy.rego
+#         - target: authz/policy.rego
+#           type: file
+#           uri: /home/valery/IdeaProjects/github.com/vgryzunov/smart-gateway/bundle-server/opa/debug.rego
       - name: "certs"
         targets:
           - target: certs/data.json
             type: http
-            uri: https://keycloak.192.168.49.2.nip.io/iam/auth/realms/ext-dev/protocol/openid-connect/certs
+            uri: https://keycloak.192.168.49.2.nip.io/iam/auth/realms/demo/protocol/openid-connect/certs
+

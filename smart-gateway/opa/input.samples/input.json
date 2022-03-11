@@ -2,12 +2,12 @@
     "path": [
       "http:",
       "",
-      "10.77.3.117:8888",
+      "localhost:8888",
       "meetings"
     ],
     "headers": {
       "Host": [
-        "10.77.3.117:8888"
+        "localhost:8888"
       ],
       "Connection": [
         "keep-alive"
@@ -19,19 +19,40 @@
         "1"
       ],
       "User-Agent": [
-        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36"
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36"
       ],
       "Accept": [
         "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9"
       ],
+      "Sec-Fetch-Site": [
+        "cross-site"
+      ],
+      "Sec-Fetch-Mode": [
+        "navigate"
+      ],
+      "Sec-Fetch-User": [
+        "?1"
+      ],
+      "Sec-Fetch-Dest": [
+        "document"
+      ],
+      "sec-ch-ua": [
+        "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"99\", \"Google Chrome\";v=\"99\""
+      ],
+      "sec-ch-ua-mobile": [
+        "?0"
+      ],
+      "sec-ch-ua-platform": [
+        "\"Linux\""
+      ],
       "Accept-Encoding": [
-        "gzip, deflate"
+        "gzip, deflate, br"
       ],
       "Accept-Language": [
         "en-US,en;q=0.9"
       ],
       "Authorization": [
-        "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJkWXd6bkY3WkxxMWFoVGN6RzNWOEdqSVZVYlFrY01yWVIzWF9KeVJ6RHA4In0.eyJleHAiOjE2NDYxMzYyNjcsImlhdCI6MTY0NjEzNTk2NywiYXV0aF90aW1lIjoxNjQ2MTM1OTY3LCJqdGkiOiIyYjA5ODE0OC03ZWYzLTRkMTctODk1Ni01OWJmOGEyMGUyOWIiLCJpc3MiOiJodHRwczovL2tleWNsb2FrLjE5Mi4xNjguNDkuMi5uaXAuaW8vaWFtL2F1dGgvcmVhbG1zL2RlbW8iLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiZDA4YmIzYzktYzZjYS00M2MwLTg0MWQtMWEwZTYzOTg5ODNlIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoic21hcnQtZ2F0ZXdheSIsInNlc3Npb25fc3RhdGUiOiIxYjljNWQxMC1lYzlhLTQ1ZjYtOWUxMS0wODcxZmY2ZTcwZTkiLCJhY3IiOiIxIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iLCJkZWZhdWx0LXJvbGVzLWRlbW8iXX0sInJlc291cmNlX2FjY2VzcyI6eyJzbWFydC1nYXRld2F5Ijp7InJvbGVzIjpbInN0YWZmIl19LCJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJzaWQiOiIxYjljNWQxMC1lYzlhLTQ1ZjYtOWUxMS0wODcxZmY2ZTcwZTkiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiIxIEl2YW5vdiIsInByZWZlcnJlZF91c2VybmFtZSI6Iml2YW5vdjEiLCJnaXZlbl9uYW1lIjoiMSIsImZhbWlseV9uYW1lIjoiSXZhbm92In0.ZHYxnMKMM5xx21vYfVK_W_xJpJV2zZcT4ZSTpghWc9KX-FdR2WHMS3UMfN6i3NCEsMhHEyqHiwZhQCmmtGLuiOrH_0JOnxW9FXEkhudOl573txfkrRoTOiUs_P6sHrhMq4Voq8xCYVPeKlnhSL6Vm764Gi9uPh1XN2Hez5Sg3_XEvmpfsa4cPwEesz-jlai0jUVlbPvqLycptLfOGeN9PuBPl-AhPcKKEyhXihotkFYEZ6PWX9zPCYOnDifQpsAUKAWBUJWWrgTzN5r-JuCX2sU_8UppImdYdgvRtye9ibsEISrzqzY67mPHZptVJC7chZU2XrAjDZLirox21wOJqg"
+        "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJkWXd6bkY3WkxxMWFoVGN6RzNWOEdqSVZVYlFrY01yWVIzWF9KeVJ6RHA4In0.eyJleHAiOjE2NDY5MjcxNDEsImlhdCI6MTY0NjkyNjg0MSwiYXV0aF90aW1lIjoxNjQ2OTI2ODQxLCJqdGkiOiI3ZjM2YTY5Yi0zYzUzLTRlNTAtYTM5Mi0xYjUzMzIyNTYzODQiLCJpc3MiOiJodHRwczovL2tleWNsb2FrLjE5Mi4xNjguNDkuMi5uaXAuaW8vaWFtL2F1dGgvcmVhbG1zL2RlbW8iLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiZDA4YmIzYzktYzZjYS00M2MwLTg0MWQtMWEwZTYzOTg5ODNlIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoic21hcnQtZ2F0ZXdheSIsInNlc3Npb25fc3RhdGUiOiI2Zjk0OTdhMy05OTg2LTQ2MTAtYmE0YS05ZTRkYjAyMjU3ODEiLCJhY3IiOiIxIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iLCJkZWZhdWx0LXJvbGVzLWRlbW8iXX0sInJlc291cmNlX2FjY2VzcyI6eyJzbWFydC1nYXRld2F5Ijp7InJvbGVzIjpbInN0YWZmIl19LCJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJzaWQiOiI2Zjk0OTdhMy05OTg2LTQ2MTAtYmE0YS05ZTRkYjAyMjU3ODEiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiIxIEl2YW5vdiIsInByZWZlcnJlZF91c2VybmFtZSI6Iml2YW5vdjEiLCJnaXZlbl9uYW1lIjoiMSIsImZhbWlseV9uYW1lIjoiSXZhbm92In0.JPXbACaClQFfRn680uOcdOeElXaLABebhJPEswsom_u5K9t3onvU-ZklVSoEyvhxMP-dX9-ULRGm1w6QTDPXQu23k1yMyEvLAJvBdza4shDuXFOCKhQqgU0sweaTN66Y5RssVBLfhwtJBRROPGh48xWpSQBeAVIKzK5VD-8deScJmii02tW0jVHeO3PZiWwIzt1JyZRdHq3UUaI0v5jOc0GQ-rRXNjKseAiOWgwoVooGPs7fjbIUPC31Su4_W2SBstANFDj4Venbodmlp7WmxKe6QREI3CAxwz243_0j5hZ3fpUgqvmgNAgkFXq2nmL_1q4P-0VQluJQf89rheAQ4w"
       ]
     },
     "method": "GET"

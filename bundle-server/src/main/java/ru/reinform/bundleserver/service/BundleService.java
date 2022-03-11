@@ -104,12 +104,18 @@ public class BundleService {
             throw new IllegalArgumentException("\"bundle.roots[].targets[].type is null\"");
         }
 
-        if (ty.equals("resource")) {
-            addResourceTarget(tos, target.getTarget(), target.getUri() );
-        } else if (ty.equals("http")) {
-            addHttpTarget(tos, target.getTarget(), target.getUri());
-        } else {
-            throw new IllegalArgumentException("Invalid bundle.roots[].targets[].type: " + ty);
+        switch (ty) {
+            case "resource":
+                addResourceTarget(tos, target.getTarget(), target.getUri());
+                break;
+            case "http":
+                addHttpTarget(tos, target.getTarget(), target.getUri());
+                break;
+            case "file":
+                addFileTarget(tos, target.getTarget(), target.getUri());
+                break;
+            default:
+                throw new IllegalArgumentException("Invalid bundle.roots[].targets[].type: " + ty);
         }
     }
 
@@ -132,14 +138,24 @@ public class BundleService {
 
     private void addResourceTarget(TarArchiveOutputStream tos, String target, String uri) throws IOException {
         InputStream resourceStream = resourceDataService.getResourceStream(uri);
+        addStreamTarget(tos, target, resourceStream);
+        resourceStream.close();
+    }
 
+    private void addFileTarget(TarArchiveOutputStream tos, String target, String uri) throws IOException {
+        FileInputStream fileInputStream = new FileInputStream(uri);
+        addStreamTarget(tos, target, fileInputStream);
+        fileInputStream.close();
+    }
+
+    private void addStreamTarget(TarArchiveOutputStream tos, String target, InputStream inputStream) throws IOException {
         TarArchiveEntry entry = new TarArchiveEntry(target);
         byte[] buf = new byte[4096];
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
 
         int length;
         int size = 0;
-        while ((length = resourceStream.read(buf)) > 0) {
+        while ((length = inputStream.read(buf)) > 0) {
 
             size += length;
             byteArrayOutputStream.write(buf, 0, length);
@@ -153,4 +169,5 @@ public class BundleService {
         }
         tos.closeArchiveEntry();
     }
+
 }
