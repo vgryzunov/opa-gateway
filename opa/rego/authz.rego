@@ -19,7 +19,7 @@ client := "smart-gateway"
 
 client_roles := jwt.payload.resource_access[client].roles
 
-roles_allowed = result {
+roles_allowed := result {
     resources[x].url = input.path[3]
     result = resources[x].roles
 }
@@ -42,19 +42,6 @@ jwt = {"header": header, "payload": payload} {
 	[header, payload, _] := io.jwt.decode(jwt_encoded)
 }
 
-t1 = resources
-t2 = input
-t3 = certs.keys
-t4 = jwt.header
-t5 {
-         some i
-         certs.keys[i].kid == jwt.header.kid
-     }
-
-t6 = certs.keys[1].kid
-t7 = certs.keys[0].kid
-t8 = jwt.header.kid
-t10 = certs
 
 
 
