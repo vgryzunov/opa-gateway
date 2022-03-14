@@ -40,19 +40,19 @@ test_token_valid {
 
 test_roles_allowed {
     roles_allowed = ["staff","managers"]
+                  with client_roles as ["staff"]
                   with input as {
                      "path": [
                               "http:",
                               "",
                               "localhost:8888",
                               "meetings"
-                            ],
-                     "headers": { "Authorization": [ auth_header ] }
+                            ]
                      }
                   with data.certs as data_certs
                   with data.authz.resources as [
                        {
-                         "url": "assignments",
+                         "name": "assignments",
                          "method": "GET",
                          "roles": [
                              "staff",
@@ -60,7 +60,7 @@ test_roles_allowed {
                            ]
                          },
                        {
-                         "url": "meetings",
+                         "name": "meetings",
                          "method": "GET",
                          "roles": [
                            "staff",

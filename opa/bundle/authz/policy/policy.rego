@@ -8,7 +8,7 @@ default authorized = { "allowed" : false, "name" : null, "tokenValid": null}
 
 authorized = { "allowed": true, "name": jwt.payload.preferred_username,
                "tokenValid": token_valid} {
-	resources[x].url == input.path[3]
+	resources[x].name == input.path[3]
 	resources[x].method == input.method
 
 	some i, j
@@ -19,8 +19,9 @@ client := "smart-gateway"
 
 client_roles := jwt.payload.resource_access[client].roles
 
-roles_allowed := result {
-    resources[x].url = input.path[3]
+roles_allowed = result {
+    some x
+    resources[x].name = input.path[3]
     result = resources[x].roles
 }
 
@@ -41,7 +42,4 @@ token_valid := io.jwt.verify_rs256(jwt_encoded, jwks)
 jwt = {"header": header, "payload": payload} {
 	[header, payload, _] := io.jwt.decode(jwt_encoded)
 }
-
-
-
 
