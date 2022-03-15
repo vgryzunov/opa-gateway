@@ -6,7 +6,7 @@ test_allowed_resources_staff {
                       with client_roles as ["staff"]
                       with input as {
                          "headers": { "Authorization": [ auth_header ] },
-                         "resources" : { "assignments", "meetings" }
+                         "resources" : [ "assignments", "meetings" ]
                        }
                       with data.certs as data_certs
                       with data.authz.resources as [
@@ -42,7 +42,7 @@ test_allowed_resources_managers {
                       with client_roles as ["managers"]
                       with input as {
                          "headers": { "Authorization": [ auth_header ] },
-                         "resources" : { "assignments", "managers-only",  }
+                         "resources" : [ "assignments", "managers-only"]
                        }
                       with data.certs as data_certs
                       with data.authz.resources as [

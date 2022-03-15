@@ -52,4 +52,3 @@ jwt = {"header": header, "payload": payload} {
 	[header, payload, _] := io.jwt.decode(jwt_encoded)
 }
 
-td = data.rules.resources
