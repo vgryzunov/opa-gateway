@@ -2,17 +2,22 @@ opa:
   bundle:
     revision: 0.0.1
     roots:
+      - name: "rules"
+        targets:
+          - target: rules/data.json
+            type: resource
+            uri:  opa/rules/data.json
       - name: "authz"
         targets:
-          - target: authz/data.json
+          - target: authz/authorized.rego
             type: resource
-            uri:  authz/data.json
-          - target: authz/policy.rego
+            uri: opa/authz/authorized.rego
+          - target: authz/resources_allowed.rego
             type: resource
-            uri:  authz/policy.rego
-#         - target: authz/policy.rego
+            uri:  opa/authz/resources_allowed.rego
+#         - target: rules/debug.rego
 #           type: file
-#           uri: /home/valery/IdeaProjects/github.com/vgryzunov/smart-gateway/bundle-server/opa/debug.rego
+#           uri: /home/valery/IdeaProjects/github.com/vgryzunov/smart-gateway/opa/bundle/policies/debug.rego
       - name: "certs"
         targets:
           - target: certs/data.json

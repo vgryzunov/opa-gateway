@@ -1,37 +1,47 @@
+##
+##  authorized - Authorizing resource access
+##
 package authz
 
 import input
-import data.authz.resources
+import data.rules.resources
 import data.certs
 
-default authorized = { "allowed" : false, "name" : null, "tokenValid": null}
+# allowed - acces is allowed
+# name - subject name from JWT
+# tokenValid - token is verified
+default authorized = { "allowed" : false, "name" : null, "tokenValid": false}
 
 authorized = { "allowed": true, "name": jwt.payload.preferred_username,
                "tokenValid": token_valid} {
-	resources[x].url == input.path[3]
+	resources[x].name == input.path[3]
 	resources[x].method == input.method
 
 	some i, j
 	client_roles[i] == roles_allowed[j]
 }
 
+# OIDC client
 client := "smart-gateway"
 
+# Roles in JWT
 client_roles := jwt.payload.resource_access[client].roles
 
+# Roles allowed for requested resource
 roles_allowed = result {
-    resources[x].url = input.path[3]
+    some x
+    resources[x].name = input.path[3]
     result = resources[x].roles
 }
 
-# Cert with corresponding kid
-cert = { "keys": [key] } {
+# Certificate with corresponding kid
+cert := { "keys": [key] } {
     some i
     certs.keys[i].kid == jwt.header.kid
     key := certs.keys[i]
 }
 
-# cert
+# Certuficate as text
 jwks = json.marshal(cert)
 
 jwt_encoded := split(input.headers.Authorization[0], " ")[1]
@@ -42,7 +52,4 @@ jwt = {"header": header, "payload": payload} {
 	[header, payload, _] := io.jwt.decode(jwt_encoded)
 }
 
-
-
-
-
+r = data.certs

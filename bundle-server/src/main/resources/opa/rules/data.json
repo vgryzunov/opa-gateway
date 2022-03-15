@@ -1,0 +1,24 @@
+{
+  "resources": [
+    {
+      "name": "assignments",
+      "method": "GET",
+      "roles": [ "staff", "managers" ]
+    },
+    {
+      "name": "assignments",
+      "method": "PUT",
+      "roles": [ "managers" ]
+    },
+    {
+      "name": "meetings",
+      "method": "GET",
+      "roles": [ "staff", "managers" ]
+    },
+    {
+      "name": "managers-only",
+      "method": "GET",
+      "roles": [ "managers" ]
+    }
+  ]
+}
