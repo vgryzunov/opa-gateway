@@ -31,7 +31,8 @@ client_roles := jwt.payload.resource_access[client].roles
 roles_allowed = result {
     some x
     resources[x].name = input.path[3]
-    result = resources[x].roles
+    resources[x].method = input.method
+    resources[x].roles = result
 }
 
 # Certificate with corresponding kid

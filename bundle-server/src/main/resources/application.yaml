@@ -1,3 +1,6 @@
+server:
+  port: 8081
+
 opa:
   bundle:
     revision: 0.0.1
@@ -22,5 +25,5 @@ opa:
         targets:
           - target: certs/data.json
             type: http
-            uri: https://keycloak.192.168.49.2.nip.io/iam/auth/realms/demo/protocol/openid-connect/certs
+            uri: http://localhost:8080/auth/realms/demo/protocol/openid-connect/certs
 
