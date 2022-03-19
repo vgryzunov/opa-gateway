@@ -9,7 +9,7 @@ test_allowed_resources_staff {
                          "resources" : [ "assignments", "meetings" ]
                        }
                       with data.certs as data_certs
-                      with data.authz.resources as [
+                      with data.rules.resources as [
                                      {
                                        "name": "assignments",
                                        "method": "GET",
@@ -45,7 +45,7 @@ test_allowed_resources_managers {
                          "resources" : [ "assignments", "managers-only"]
                        }
                       with data.certs as data_certs
-                      with data.authz.resources as [
+                      with data.rules.resources as [
                                      {
                                        "name": "assignments",
                                        "method": "GET",

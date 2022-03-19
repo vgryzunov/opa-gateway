@@ -31,7 +31,8 @@ client_roles := jwt.payload.resource_access[client].roles
 roles_allowed = result {
     some x
     resources[x].name = input.path[3]
-    result = resources[x].roles
+    resources[x].method = input.method
+    resources[x].roles = result
 }
 
 # Certificate with corresponding kid
@@ -51,4 +52,6 @@ token_valid := io.jwt.verify_rs256(jwt_encoded, jwks)
 jwt = {"header": header, "payload": payload} {
 	[header, payload, _] := io.jwt.decode(jwt_encoded)
 }
+
+
 

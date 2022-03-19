@@ -3,7 +3,7 @@ decision_logs:
 
 services:
   - name: bunble-server
-    url: http://localhost:8080
+    url: http://localhost:8081
 
 bundles:
   rbac:
@@ -11,5 +11,5 @@ bundles:
     resource: bundle.tar.gz
     persist: true
     polling:
-      min_delay_seconds: 6
-      max_delay_seconds: 30
+      min_delay_seconds: 60
+      max_delay_seconds: 300

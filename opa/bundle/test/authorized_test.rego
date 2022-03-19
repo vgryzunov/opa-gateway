@@ -39,18 +39,17 @@ test_token_valid {
 }
 
 test_roles_allowed {
-    roles_allowed = ["staff","managers"]
-                  with client_roles as ["staff"]
+    roles_allowed = ["staff",  "managers"]
                   with input as {
                      "path": [
                               "http:",
                               "",
                               "localhost:8888",
                               "meetings"
-                            ]
+                            ],
+                     "method": "GET"
                      }
-                  with data.certs as data_certs
-                  with data.authz.resources as [
+                  with data.rules.resources as [
                        {
                          "name": "assignments",
                          "method": "GET",

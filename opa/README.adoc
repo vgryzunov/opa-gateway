@@ -23,3 +23,8 @@ While debugging bundle you may run OPA like this:
 ----
 
 To start OPA in MacOS X or Windows, download corresponding executable from https://www.openpolicyagent.org/
+
+[source,console]
+----
+opa run -s -c config.yaml
+----
