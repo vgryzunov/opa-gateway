@@ -1,0 +1,577 @@
+{
+  "ui_auth": [
+    {
+      "disableHighlight": null,
+      "mobile": true,
+      "Code": "sys_myTasksNew",
+      "Url": "/str/main/#/app/main",
+      "System": "STR",
+      "TargetBlank": false,
+      "parentId": null,
+      "Name": "Главная",
+      "sortValue": "100",
+      "hide": null,
+      "deleted": 0,
+      "children": null,
+      "AccessGroup": [
+        "SYS_ALL_USERS"
+      ],
+      "id": "2afebb5b-b1c5-41a3-89b7-e9b19c2bbd37",
+      "Icon": "fas fa-home-alt"
+    },
+    {
+      "disableHighlight": null,
+      "mobile": true,
+      "Code": "str_tasks",
+      "Url": "/str/main/#/app/tasks/showcase",
+      "System": "STR",
+      "TargetBlank": false,
+      "parentId": null,
+      "Name": "Мои задачи",
+      "sortValue": "112",
+      "hide": null,
+      "deleted": 0,
+      "children": null,
+      "AccessGroup": [
+        "SYS_ALL_USERS"
+      ],
+      "id": "b8ec14a5-8fd0-4d17-9994-8a86a8b2ca87",
+      "Icon": "fas fa-inbox"
+    },
+    {
+      "disableHighlight": null,
+      "mobile": true,
+      "Code": "str_opportunity",
+      "Url": "/str/main/#/app/actions",
+      "System": "STR",
+      "TargetBlank": false,
+      "parentId": null,
+      "Name": "Мои возможности",
+      "sortValue": "113",
+      "hide": null,
+      "deleted": 0,
+      "children": null,
+      "AccessGroup": [
+        "SYS_ALL_USERS"
+      ],
+      "id": "b8ab4faf-7627-4c9e-8fb2-f470ad5998db",
+      "Icon": "fas fa-pencil"
+    },
+    {
+      "disableHighlight": null,
+      "mobile": true,
+      "Code": "str_object",
+      "Url": "/str/oks/#/app/obj/list",
+      "System": "STR",
+      "TargetBlank": false,
+      "parentId": null,
+      "Name": "Объекты",
+      "sortValue": "116",
+      "hide": null,
+      "deleted": 0,
+      "children": null,
+      "AccessGroup": [
+        "STR_OKS_OBJECT_VIEW"
+      ],
+      "id": "5af00fb7-2a54-48e4-b364-95af77b71f6e",
+      "Icon": "far fa-building"
+    },
+    {
+      "disableHighlight": null,
+      "mobile": true,
+      "Code": "str_program",
+      "Url": "/str/oks/#/app/program/list",
+      "System": "STR",
+      "TargetBlank": false,
+      "parentId": null,
+      "Name": "Программы",
+      "sortValue": "117",
+      "hide": null,
+      "deleted": 0,
+      "children": null,
+      "AccessGroup": [
+        "STR_OKS_PROGRAM_VIEW"
+      ],
+      "id": "833d5138-281c-4f5f-8d1a-893e121e8068",
+      "Icon": "fas fa-university"
+    },
+    {
+      "disableHighlight": null,
+      "mobile": true,
+      "Code": "document",
+      "Url": "/str/oks/#/app/document/list",
+      "System": "STR",
+      "TargetBlank": false,
+      "parentId": null,
+      "Name": "Документы",
+      "sortValue": "140",
+      "hide": null,
+      "deleted": 0,
+      "children": null,
+      "AccessGroup": [
+        "STR_OKS_DOCUMENT_VIEW"
+      ],
+      "id": "ef5c824b-3dec-4bd6-9408-997274491621",
+      "Icon": "far fa-archive"
+    },
+    {
+      "disableHighlight": null,
+      "mobile": true,
+      "Code": "str_organization",
+      "Url": "/str/oks/#/app/org/list",
+      "System": "STR",
+      "TargetBlank": false,
+      "parentId": null,
+      "Name": "Организации",
+      "sortValue": "150",
+      "hide": null,
+      "deleted": 0,
+      "children": null,
+      "AccessGroup": [
+        "STR_OKS_ORGANIZATION_VIEW"
+      ],
+      "id": "05c94489-d92a-41b5-b897-c22620246ca5",
+      "Icon": "far fa-address-book"
+    },
+    {
+      "disableHighlight": null,
+      "mobile": true,
+      "Code": "str_map",
+      "Url": "/map/#/map",
+      "System": "GIS",
+      "TargetBlank": true,
+      "parentId": null,
+      "Name": "Карта",
+      "sortValue": "160",
+      "hide": null,
+      "deleted": 0,
+      "children": null,
+      "AccessGroup": [
+        "SYS_ALL_USERS"
+      ],
+      "id": "20bc78e2-54c9-456c-a5a6-5b460bfa81c5",
+      "Icon": "far fa-globe"
+    },
+    {
+      "disableHighlight": null,
+      "mobile": true,
+      "Code": "str_monitoring",
+      "Url": "/str/oks/#/app/monitoring",
+      "System": "STR",
+      "TargetBlank": false,
+      "parentId": null,
+      "Name": "Мониторинг",
+      "sortValue": "170",
+      "hide": null,
+      "deleted": 0,
+      "children": null,
+      "AccessGroup": [
+        "SYS_ALL_USERS"
+      ],
+      "id": "aa419576-33e4-438d-87dd-57c55ac18d60",
+      "Icon": "fas fa-video"
+    },
+    {
+      "disableHighlight": null,
+      "mobile": true,
+      "Code": "str_meeting",
+      "Url": "/str/meeting/#/app/meeting/list",
+      "System": "STR",
+      "TargetBlank": false,
+      "parentId": null,
+      "Name": "Совещания",
+      "sortValue": "310",
+      "hide": null,
+      "deleted": 0,
+      "children": null,
+      "AccessGroup": [
+        "STR_MEETING_MEETING_VIEW",
+        "STR_MEETING_QUESTION_VIEW"
+      ],
+      "id": "dae21d7f-42dd-418f-ac24-bd5023365fa6",
+      "Icon": "far fa-calendar-alt"
+    },
+    {
+      "disableHighlight": null,
+      "mobile": true,
+      "Code": "str_instruction",
+      "Url": "/str/meeting/#/app/instruction/list",
+      "System": "STR",
+      "TargetBlank": false,
+      "parentId": null,
+      "Name": "Поручения",
+      "sortValue": "333",
+      "hide": null,
+      "deleted": 0,
+      "children": null,
+      "AccessGroup": [
+        "STR_MEETING_INSTRUCTION_VIEW"
+      ],
+      "id": "d9d19285-6410-4ec4-aee1-9410923b7d0c",
+      "Icon": "far fa fa-ticket"
+    },
+    {
+      "disableHighlight": null,
+      "mobile": true,
+      "Code": "str_analytics",
+      "Url": "/str/oks/#/app/dashboard",
+      "System": "STR",
+      "TargetBlank": false,
+      "parentId": null,
+      "Name": "Аналитика",
+      "sortValue": "334",
+      "hide": null,
+      "deleted": 0,
+      "children": null,
+      "AccessGroup": [
+        "SYS_ALL_USERS"
+      ],
+      "id": "ea272ece-4f35-4c50-aecc-f4972f8dd499",
+      "Icon": "fas fa-th-large"
+    },
+    {
+      "disableHighlight": null,
+      "mobile": true,
+      "Code": "risk",
+      "Url": "/str/oks/#/app/risk/list",
+      "System": "STR",
+      "TargetBlank": false,
+      "parentId": null,
+      "Name": "Риски",
+      "sortValue": "350",
+      "hide": null,
+      "deleted": 0,
+      "children": null,
+      "AccessGroup": [
+        "STR_OKS_RISK_VIEW"
+      ],
+      "id": "e8cbf4fa-b30f-4ca8-a750-e3ff04675d27",
+      "Icon": "far fa-bolt"
+    },
+    {
+      "disableHighlight": null,
+      "mobile": true,
+      "Code": "str_zu",
+      "Url": "/str/oks/#/app/zu/list",
+      "System": "STR",
+      "TargetBlank": false,
+      "parentId": null,
+      "Name": "Земельные участки",
+      "sortValue": "650",
+      "hide": null,
+      "deleted": 0,
+      "children": null,
+      "AccessGroup": [
+        "STR_OKS_ZU_VIEW"
+      ],
+      "id": "ae8e6007-a4b0-4730-9005-88a6f6cf625f",
+      "Icon": "far fa-map"
+    },
+    {
+      "disableHighlight": null,
+      "mobile": true,
+      "Code": "str_workgroups",
+      "Url": "//krost-dev.reinform-int.ru/str/oks/#/app/workgroups/list",
+      "System": "STR",
+      "TargetBlank": false,
+      "parentId": null,
+      "Name": "Рабочие группы",
+      "sortValue": "655",
+      "hide": true,
+      "deleted": 0,
+      "children": null,
+      "AccessGroup": [
+        "SYS_ALL_USERS"
+      ],
+      "id": "03464b20-2bee-4b9e-ba50-03cf62a656cf",
+      "Icon": "fas fa-users"
+    },
+    {
+      "disableHighlight": null,
+      "mobile": null,
+      "Code": "sys_settings",
+      "Url": null,
+      "System": "SYS",
+      "TargetBlank": false,
+      "parentId": null,
+      "Name": "Настройки",
+      "sortValue": "900",
+      "hide": null,
+      "deleted": 0,
+      "children": [
+        {
+          "disableHighlight": null,
+          "mobile": null,
+          "Code": "sys_dicts",
+          "Url": "/conf/#/app/dicts/system",
+          "System": "CONF",
+          "TargetBlank": false,
+          "parentId": "1c24ca6a-d325-4d68-83c9-9d680c23a207",
+          "Name": "Справочники",
+          "sortValue": "100",
+          "hide": null,
+          "deleted": 0,
+          "children": null,
+          "AccessGroup": [
+            "MDM_ADMIN"
+          ],
+          "id": "dfe75bb7-cdbb-4e34-9380-540c6444ea7c",
+          "Icon": null
+        },
+        {
+          "disableHighlight": null,
+          "mobile": null,
+          "Code": "sys_users",
+          "Url": "/conf/#/app/dicts/usersnsi",
+          "System": "CONF",
+          "TargetBlank": null,
+          "parentId": "1c24ca6a-d325-4d68-83c9-9d680c23a207",
+          "Name": "Пользователи",
+          "sortValue": "120",
+          "hide": null,
+          "deleted": 0,
+          "children": null,
+          "AccessGroup": [
+            "SYS_USERS_VIEW"
+          ],
+          "id": "896083dc-ddc5-4e5e-b9b4-4d79f35959a8",
+          "Icon": null
+        },
+        {
+          "disableHighlight": null,
+          "mobile": null,
+          "Code": "sys_delegate",
+          "Url": "/conf/#/app/dicts/delegate",
+          "System": "CONF",
+          "TargetBlank": false,
+          "parentId": "1c24ca6a-d325-4d68-83c9-9d680c23a207",
+          "Name": "Делегирование",
+          "sortValue": "130",
+          "hide": false,
+          "deleted": 0,
+          "children": null,
+          "AccessGroup": [
+            "SYS_DELEGATE"
+          ],
+          "id": "db0ba2a4-0278-4c9e-a36d-c6af26b9c41b",
+          "Icon": null
+        },
+        {
+          "disableHighlight": null,
+          "mobile": false,
+          "Code": "designer",
+          "Url": null,
+          "System": "SYS",
+          "TargetBlank": null,
+          "parentId": "1c24ca6a-d325-4d68-83c9-9d680c23a207",
+          "Name": "Конструкторы",
+          "sortValue": "150",
+          "hide": null,
+          "deleted": 0,
+          "children": [
+            {
+              "disableHighlight": null,
+              "mobile": null,
+              "Code": "showcase_builder",
+              "Url": "/conf/#/app/showcase-builder/list",
+              "System": "CONF",
+              "TargetBlank": null,
+              "parentId": "b54e2a0d-88eb-4b7d-90ad-b44c56afacf6",
+              "Name": "Витрины SOLR",
+              "sortValue": "010",
+              "hide": null,
+              "deleted": 0,
+              "children": null,
+              "AccessGroup": [
+                "MDM_ADMIN"
+              ],
+              "id": "9fbff09e-79fe-435b-a86a-8c0a90244aba",
+              "Icon": null
+            },
+            {
+              "disableHighlight": null,
+              "mobile": null,
+              "Code": "showcase_builder_graphql",
+              "Url": "/conf/#/app/showcase-builder-graphQl/list",
+              "System": "CONF",
+              "TargetBlank": null,
+              "parentId": "b54e2a0d-88eb-4b7d-90ad-b44c56afacf6",
+              "Name": "Витрины GraphQL",
+              "sortValue": "015",
+              "hide": null,
+              "deleted": 0,
+              "children": null,
+              "AccessGroup": [
+                "MDM_ADMIN"
+              ],
+              "id": "426acb1a-4c63-46a8-bafe-6a228409bc7b",
+              "Icon": null
+            },
+            {
+              "disableHighlight": null,
+              "mobile": false,
+              "Code": "designer_forms",
+              "Url": "/forms-designer/#/app/business-processes/edit",
+              "System": "SYS",
+              "TargetBlank": false,
+              "parentId": "b54e2a0d-88eb-4b7d-90ad-b44c56afacf6",
+              "Name": "Формы",
+              "sortValue": "100",
+              "hide": null,
+              "deleted": 0,
+              "children": null,
+              "AccessGroup": [
+                "SYS_SUBSYSTEM_SYS_FLEX"
+              ],
+              "id": "1b2938b9-a181-4e79-bb11-39cb4c70165b",
+              "Icon": null
+            },
+            {
+              "disableHighlight": null,
+              "mobile": false,
+              "Code": "designer_cards",
+              "Url": "/forms-designer/#/app/flexcards-showcase",
+              "System": "SYS",
+              "TargetBlank": false,
+              "parentId": "b54e2a0d-88eb-4b7d-90ad-b44c56afacf6",
+              "Name": "Карточки",
+              "sortValue": "110",
+              "hide": null,
+              "deleted": 0,
+              "children": null,
+              "AccessGroup": [
+                "SYS_SUBSYSTEM_SYS_FLEX"
+              ],
+              "id": "496eccf8-4967-421b-b2f2-2bdad7d1998a",
+              "Icon": null
+            },
+            {
+              "disableHighlight": null,
+              "mobile": false,
+              "Code": "designer_bpmn",
+              "Url": "/bpmn-designer/#/app/bpmn-showcase-business-process",
+              "System": null,
+              "TargetBlank": false,
+              "parentId": "b54e2a0d-88eb-4b7d-90ad-b44c56afacf6",
+              "Name": "Бизнес-процессы",
+              "sortValue": "130",
+              "hide": null,
+              "deleted": 0,
+              "children": null,
+              "AccessGroup": [
+                "SYS_SUBSYSTEM_SYS_FLEX"
+              ],
+              "id": "f5a24e36-b0fa-4b8c-9e78-865a4d123aa9",
+              "Icon": null
+            },
+            {
+              "disableHighlight": null,
+              "mobile": false,
+              "Code": "designer_complex",
+              "Url": "/bpmn-designer/#/app/bpmn-showcase-complex-process",
+              "System": null,
+              "TargetBlank": false,
+              "parentId": "b54e2a0d-88eb-4b7d-90ad-b44c56afacf6",
+              "Name": "Прикладные сервисы",
+              "sortValue": "140",
+              "hide": null,
+              "deleted": 0,
+              "children": null,
+              "AccessGroup": [
+                "SYS_SUBSYSTEM_SYS_FLEX"
+              ],
+              "id": "3bd6b718-eb24-4bb3-88d4-1cb8aa10aa59",
+              "Icon": null
+            },
+            {
+              "disableHighlight": null,
+              "mobile": false,
+              "Code": "designer_scheme",
+              "Url": "/bpmn-designer/#/app/bpmn-card-business-process-cheme",
+              "System": null,
+              "TargetBlank": false,
+              "parentId": "b54e2a0d-88eb-4b7d-90ad-b44c56afacf6",
+              "Name": "BPMN-схемы",
+              "sortValue": "150",
+              "hide": null,
+              "deleted": 0,
+              "children": null,
+              "AccessGroup": [
+                "SYS_SUBSYSTEM_SYS_FLEX"
+              ],
+              "id": "f2011d51-9066-4693-a18e-ba0d2e3260fc",
+              "Icon": null
+            },
+            {
+              "disableHighlight": null,
+              "mobile": null,
+              "Code": "sys_schema_designer",
+              "Url": "/schema-designer/#/app/schema/schema-designer-showcase",
+              "System": null,
+              "TargetBlank": null,
+              "parentId": "b54e2a0d-88eb-4b7d-90ad-b44c56afacf6",
+              "Name": "Модели объектов",
+              "sortValue": "155",
+              "hide": null,
+              "deleted": 0,
+              "children": null,
+              "AccessGroup": [
+                "SYS_SCHEMA_VIEW"
+              ],
+              "id": "91e2edd3-f488-46d4-a35c-53dbca1ed4b5",
+              "Icon": null
+            }
+          ],
+          "AccessGroup": [
+            "SYS_SUBSYSTEM_SYS_FLEX"
+          ],
+          "id": "b54e2a0d-88eb-4b7d-90ad-b44c56afacf6",
+          "Icon": null
+        },
+        {
+          "disableHighlight": null,
+          "mobile": null,
+          "Code": "search_admin",
+          "Url": "/conf/#/app/search/admin/recreateScheme",
+          "System": null,
+          "TargetBlank": null,
+          "parentId": "1c24ca6a-d325-4d68-83c9-9d680c23a207",
+          "Name": "Управление поиском",
+          "sortValue": "170",
+          "hide": null,
+          "deleted": 0,
+          "children": null,
+          "AccessGroup": [
+            "MDM_ADMIN"
+          ],
+          "id": "fe512a3b-50dd-467f-a31f-81cde5b3d348",
+          "Icon": null
+        },
+        {
+          "disableHighlight": null,
+          "mobile": null,
+          "Code": "sys_versions",
+          "Url": "#/app/versions",
+          "System": "SYS",
+          "TargetBlank": null,
+          "parentId": "1c24ca6a-d325-4d68-83c9-9d680c23a207",
+          "Name": "Компоненты",
+          "sortValue": "180",
+          "hide": null,
+          "deleted": 0,
+          "children": null,
+          "AccessGroup": [
+            "MDM_ADMIN"
+          ],
+          "id": "d798f687-46f2-4f96-8fd1-393701d48039",
+          "Icon": null
+        }
+      ],
+      "AccessGroup": [
+        "MDM_ADMIN"
+      ],
+      "id": "1c24ca6a-d325-4d68-83c9-9d680c23a207",
+      "Icon": "far fa-cogs"
+    }
+  ]
+}
