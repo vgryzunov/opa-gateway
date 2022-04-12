@@ -25,5 +25,5 @@ opa:
         targets:
           - target: certs/data.json
             type: http
-            uri: http://localhost:8080/auth/realms/demo/protocol/openid-connect/certs
+            uri: https://keycloak.192.168.49.2.nip.io/iam/auth/realms/demo/protocol/openid-connect/certs
 

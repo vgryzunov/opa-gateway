@@ -14,11 +14,8 @@ default authorized = { "allowed" : false, "name" : null, "tokenValid": false}
 
 authorized = { "allowed": true, "name": jwt.payload.preferred_username,
                "tokenValid": token_valid} {
-	resources[x].name == input.path[3]
-	resources[x].method == input.method
-
-	some i, j
-	client_roles[i] == roles_allowed[j]
+	some i
+	client_roles[i] == roles_allowed[_]
 }
 
 # OIDC client
@@ -31,8 +28,8 @@ client_roles := jwt.payload.resource_access[client].roles
 roles_allowed = result {
     some x
     resources[x].name = input.path[3]
-    resources[x].method = input.method
-    resources[x].roles = result
+    resources[x].methods[_] = input.method
+    result = resources[x].roles
 }
 
 # Certificate with corresponding kid
@@ -52,6 +49,4 @@ token_valid := io.jwt.verify_rs256(jwt_encoded, jwks)
 jwt = {"header": header, "payload": payload} {
 	[header, payload, _] := io.jwt.decode(jwt_encoded)
 }
-
-
 

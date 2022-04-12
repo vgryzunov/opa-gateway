@@ -1,23 +1,33 @@
 {
   "resources": [
     {
-      "name": "assignments",
-      "method": "GET",
+      "name": "resource",
+      "methods": ["GET", "PUT"],
+      "roles": [ "staff", "managers" ]
+    },
+    {
+      "name": "hello",
+      "methods": ["GET", "PUT"],
       "roles": [ "staff", "managers" ]
     },
     {
       "name": "assignments",
-      "method": "PUT",
+      "methods": ["GET"],
+      "roles": [ "staff", "managers" ]
+    },
+    {
+      "name": "assignments",
+      "methods": ["PUT"],
       "roles": [ "managers" ]
     },
     {
       "name": "meetings",
-      "method": "GET",
+      "methods": ["GET"],
       "roles": [ "staff", "managers" ]
     },
     {
       "name": "managers-only",
-      "method": "GET",
+      "methods": ["GET"],
       "roles": [ "managers" ]
     }
   ]

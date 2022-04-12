@@ -36,33 +36,50 @@ spring:
           keycloak:
             provider: keycloak
             client-id: smart-gateway
-            client-secret: 6p4sQ6Ckj77lgtrPWfCi7TC7CeqFFt1e
+            client-secret: 9Nu9ar5UPT7VB0tTmMRFQSX0WLQopq3q
             scopes: openid
             authorization-grant-type: authorization_code
             redirect-uri-template: "{baseUrl}/login/oauth2/code/{registrationId}"
 
         provider:
           keycloak:
-            issuer-uri: http://localhost:8080/auth/realms/demo
-            token-uri: http://localhost:8080/auth/realms/demo/protocol/openid-connect/token
-            authorization-uri: http://localhost:8080/auth/realms/demo/protocol/openid-connect/auth
-            userinfo-uri: http://localhost:8080/auth/realms/demo/protocol/openid-connect/userinfo
+            issuer-uri: http://localhost:3000/iam/auth/realms/demo
+            token-uri: http://localhost:3000/iam/auth/realms/demo/protocol/openid-connect/token
+            authorization-uri: http://localhost:3000/iam/auth/realms/demo/protocol/openid-connect/auth
+            userinfo-uri: http://localhost:3000/iam/auth/realms/demo/protocol/openid-connect/userinfo
             user-name-attribute: preferred_username
 
   cloud:
     gateway:
+      globalcors:
+        add-to-simple-url-handler-mapping: true
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:4200"
+            allowedHeaders: "*"
+            allowedMethods:
+              - GET
+              - POST
       httpclient:
         ssl:
           use-insecure-trust-manager: true
       metrics:
         enabled: true
       routes:
+        - id: resource
+          uri: "http://localhost:9000/"
+          predicates:
+            - Path=/resource
+          filters:
+            - SetPath=/resource
+            - RemoveRequestHeader=Cookie
+            - RequestPolicyFilterFactory
         - id: hello
           uri: "http://localhost:9000/"
           predicates:
             - Path=/hello
           filters:
-            - SetPath=/resource
+            - SetPath=/hello
             - RemoveRequestHeader=Cookie
             - RequestPolicyFilterFactory
         - id: meeting-list
@@ -89,12 +106,6 @@ spring:
             - SetPath=/assignments
             - RemoveRequestHeader=Cookie
             - RequestPolicyFilterFactory
-        - id: keycloak
-          uri: "http:/localhost:8080"
-          predicates:
-            - Path=/iam/**
-          filters:
-            - RewritePath=/iam/(?<remains>.*), /iam/${remains}
 
       default-filters:
         - TokenRelay
