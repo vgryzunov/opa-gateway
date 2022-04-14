@@ -36,18 +36,25 @@ export class AuthConfigService {
       // continue initializing app or redirect to login-page
 
       console.log("==> AuthConfigService loadDiscoveryDocumentAndLogin()");
-      this.oauthService.loadDiscoveryDocumentAndLogin().then(isLoggedIn => {
-        if (isLoggedIn) {
-          console.log("==> LOGGED IN")
-          this.oauthService.setupAutomaticSilentRefresh();
-          resolveFn();
-        } else {
-          console.log("==> NOT LOGGED IN")
-          this.oauthService.initLoginFlow();
-          rejectFn();
+      this.oauthService.loadDiscoveryDocumentAndLogin().then(
+        isLoggedIn => {
+          if (isLoggedIn) {
+            console.log("==> LOGGED IN")
+            this.oauthService.setupAutomaticSilentRefresh();
+            resolveFn();
+          } else {
+            console.log("==> NOT LOGGED IN")
+            this.oauthService.initLoginFlow();
+            rejectFn();
+          }
+        },
+        error => {
+          console.log({ error });
+          if (error.status === 400) {
+            location.reload();
+          }
         }
-      });
-
+      );
     });
   }
 
@@ -56,5 +63,6 @@ export class AuthConfigService {
     console.log("==> ACCESS TOKEN: " + this.decodedAccessToken)
     this.decodedIDToken = this.oauthService.getIdToken();
   }
+
 }
 

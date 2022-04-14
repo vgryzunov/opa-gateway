@@ -22,17 +22,18 @@ public class SecurityConfig {
         http.csrf().disable();
 
         http.authorizeExchange()
-                .pathMatchers("/iam/**").permitAll()
-                .pathMatchers("/ng/**").permitAll()
+                //.pathMatchers("/hello").permitAll()
              .and()
                 .authorizeExchange(
                         exchanges -> exchanges.anyExchange()
                                 .authenticated()
                                 .and()
                                 .oauth2Login()
+                                .and()
+                                .oauth2Client()
                 )
                 .exceptionHandling()
-                .authenticationEntryPoint(new CustomAuthenticationEntryPoint(HttpStatus.UNAUTHORIZED, responseBody))
+                //.authenticationEntryPoint(new CustomAuthenticationEntryPoint(HttpStatus.UNAUTHORIZED, responseBody))
         ;
 
         return http.build();

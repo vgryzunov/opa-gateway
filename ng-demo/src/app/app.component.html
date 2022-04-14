@@ -3,6 +3,17 @@
     Welcome {{title}}!
   </h1>
   <div class="container">
+
+    <button type="button" (click)="doGet()"> </button>
+    <div *ngIf="loading">loading...</div>
+
+    <button class="btn btn-default" (click)="login()">
+      Login
+    </button>
+    <button class="btn btn-default" (click)="logoff()">
+      Logout
+    </button>
+
     <p>Id: <span>{{id}}</span></p>
     <p>Message: <span>{{content}}!</span></p>
   </div>

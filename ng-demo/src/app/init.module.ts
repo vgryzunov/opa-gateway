@@ -1,16 +1,24 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { AuthConfigService } from './auth-config.service';
-import { HttpClientModule } from "@angular/common/http";
-import { AuthConfig, OAuthModule } from "angular-oauth2-oidc";
-import {OAuthModuleConfig} from "./auth.config";
-import { authConfig} from "./auth.config";
+import { AuthConfig, OAuthModule, OAuthStorage } from "angular-oauth2-oidc";
+import { environment } from "../environments/environment"
 
+const configAuthZero: AuthConfig = environment.idp;
+
+export function storageFactory(): OAuthStorage {
+  return localStorage
+}
+
+// TODO:
+// fix code like in https://thecodemon.com/angular-oauth2-or-open-id-connect-using-angular-oauth2-oidc-tutorial-with-example-application/
+//
 @NgModule({
-  imports: [ HttpClientModule, OAuthModule.forRoot() ],
+  imports: [
+    OAuthModule.forRoot() ],
   providers: [
     AuthConfigService,
-    { provide: AuthConfig, useValue: authConfig },
-    OAuthModuleConfig,
+    { provide: AuthConfig, useValue: configAuthZero },
+    { provide: OAuthStorage, useFactory: storageFactory },
     {
       provide: APP_INITIALIZER,
       useFactory:(initService:AuthConfigService) => () => initService.initAuth(),

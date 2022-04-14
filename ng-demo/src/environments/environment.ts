@@ -2,8 +2,24 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+let clientId ='smart-gateway';
+let issuer = 'http://localhost:3000/iam/auth/realms/demo';
+//let logoutUrl = "https://localhost:3000/iam/idp/demo/logout.html?ClientID=";
+
+
 export const environment = {
-  production: false
+  production: false,
+  idp: {
+    issuer: issuer,
+    redirectUri: window.location.origin + '/ng/',
+    clientId: clientId,
+    scope: 'openid profile email offline_access',
+    responseType: 'code',
+    disableAtHashCheck: true,
+    showDebugInformation: true,
+    requireHttps: false,
+    strictDiscoveryDocumentValidation: false
+  },
 };
 
 /*

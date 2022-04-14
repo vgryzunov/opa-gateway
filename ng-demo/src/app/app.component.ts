@@ -1,8 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {HttpClient,
-  HttpRequest,
-  HttpInterceptor
-} from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import {AuthConfig, NullValidationHandler, OAuthService} from "angular-oauth2-oidc";
 
 @Component({
@@ -14,14 +11,13 @@ export class AppComponent implements OnInit {
   title = 'ng-demo';
   id = '';
   content = '';
+  loading = false;
 
   constructor(private oauthService: OAuthService,
               private http: HttpClient,
-              private authConfig: AuthConfig) {
-    //this.configure();
-    this.doGet();
-  }
+              ) {
 
+  }
 
   ngOnInit() {
   }
@@ -34,19 +30,18 @@ export class AppComponent implements OnInit {
     this.oauthService.logOut();
   }
 
-  private configure() {
-    console.log( "==> configure()");
-    this.oauthService.configure(this.authConfig);
-    this.oauthService.tokenValidationHandler = new NullValidationHandler();
-    this.oauthService.loadDiscoveryDocumentAndTryLogin().then(r => { console.log( "==> LOGGED IN: " + r)});
-  }
-
   doGet(): void {
-    this.http.get('http://localhost:8888/hello').subscribe(data => {
-      console.log('==> DATA: ' + data)
+    console.log("==> START LOADING DATA...");
+    this.loading = true;
+    this.http.get<any>('http://localhost:3000/api/hello').subscribe(data => {
+      console.log('==> DATA: ' + JSON.stringify(data))
+      this.id = data.id;
+      this.content = data.content;
+      this.loading = false;
       },
       err => {
-        console.log('==> ERROR: ' + err)
+        console.log('==> ERROR: ' + JSON.stringify(err))
+        this.loading = false;
       });
   }
 
