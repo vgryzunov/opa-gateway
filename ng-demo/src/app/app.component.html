@@ -2,30 +2,19 @@
   <h2 class="ui header">
     {{title}}
   </h2>
-  <div class="ui container">
 
-    <button *ngIf="!hasValidAccessToken()" class="ui positive button left" (click)="login()">
-      Login
-    </button>
-    <button *ngIf="hasValidAccessToken()" class="ui positive button floating right" (click)="logoff()">
-      Logout
-    </button>
+ <div class="ui container">
 
-    <div class="ui divider"></div>
-    <div class="ui segment">
-      <div *ngIf="loading" class="ui active inverted dimmer">
-        <div class="ui text loader">Loading</div>
-                </div>
-        <p>Id: <span>{{id}}</span></p>
-        <p>Message: <span>{{content}}!</span></p>
+   <button *ngIf="!hasValidAccessToken()" class="ui positive button left" (click)="login()">
+     Login
+   </button>
+   <button *ngIf="hasValidAccessToken()" class="ui positive button floating right" (click)="logoff()">
+     Logout
+   </button>
+ </div>
 
-        <button type="button" class="ui small positive button" (click)="doGet()">
-          Hello There!
-        </button>
+ <div class="ui divider"></div>
 
+ <app-hello-demo [oauthService]="oauthService"></app-hello-demo>
 
-    </div>
-
-
-  </div>
 </div>

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { OAuthService } from "angular-oauth2-oidc";
+import {OAuthService} from "angular-oauth2-oidc";
 
 @Component({
   selector: 'app-root',
@@ -8,22 +7,13 @@ import { OAuthService } from "angular-oauth2-oidc";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'ng-demo';
-  id = '';
-  content = '';
-  loading = false;
+  title = 'ng-oauth-demo';
 
-  constructor(private oauthService: OAuthService,
-              private http: HttpClient,
-              ) {
-
+  constructor(public oauthService: OAuthService
+  ) {
   }
 
   ngOnInit() {
-  }
-
-  public hasValidAccessToken() {
-    return this.oauthService.hasValidAccessToken();
   }
 
   public login() {
@@ -34,19 +24,8 @@ export class AppComponent implements OnInit {
     this.oauthService.logOut();
   }
 
-  doGet(): void {
-    console.log("==> START LOADING DATA...");
-    this.loading = true;
-    this.http.get<any>('http://my-wst:3000/api/hello').subscribe(data => {
-      console.log('==> DATA: ' + JSON.stringify(data))
-      this.id = data.id;
-      this.content = data.content;
-      this.loading = false;
-      },
-      err => {
-        console.log('==> ERROR: ' + JSON.stringify(err))
-        this.loading = false;
-      });
+  public  hasValidAccessToken(): boolean {
+    return this.oauthService.hasValidAccessToken();
   }
 
 }

@@ -4,10 +4,12 @@ import { OAuthModule } from 'angular-oauth2-oidc'
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthConfigModule } from "./init.module";
+import { HelloDemo } from './hello-demo/hello-demo.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HelloDemo
   ],
   imports: [
     BrowserModule,
