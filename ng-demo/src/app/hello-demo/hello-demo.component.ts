@@ -11,6 +11,7 @@ export class HelloDemo implements OnInit {
   id = '';
   content = '';
   loading = false;
+
   @Input() oauthService: OAuthService | undefined;
 
   constructor( private http: HttpClient ) {

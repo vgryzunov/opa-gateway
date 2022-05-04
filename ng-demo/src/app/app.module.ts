@@ -5,11 +5,13 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthConfigModule } from "./init.module";
 import { HelloDemo } from './hello-demo/hello-demo.component';
+import { MeetingsDemoComponent } from './meetings-demo/meetings-demo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HelloDemo
+    HelloDemo,
+    MeetingsDemoComponent
   ],
   imports: [
     BrowserModule,
