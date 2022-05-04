@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {AuthConfig, NullValidationHandler, OAuthService} from "angular-oauth2-oidc";
+import { OAuthService } from "angular-oauth2-oidc";
 
 @Component({
   selector: 'app-root',
@@ -22,6 +22,10 @@ export class AppComponent implements OnInit {
   ngOnInit() {
   }
 
+  public hasValidAccessToken() {
+    return this.oauthService.hasValidAccessToken();
+  }
+
   public login() {
     this.oauthService.initLoginFlow();
   }
@@ -33,7 +37,7 @@ export class AppComponent implements OnInit {
   doGet(): void {
     console.log("==> START LOADING DATA...");
     this.loading = true;
-    this.http.get<any>('http://localhost:3000/api/hello').subscribe(data => {
+    this.http.get<any>('http://my-wst:3000/api/hello').subscribe(data => {
       console.log('==> DATA: ' + JSON.stringify(data))
       this.id = data.id;
       this.content = data.content;

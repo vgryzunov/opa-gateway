@@ -15,7 +15,7 @@ import { AuthConfigModule } from "./init.module";
     HttpClientModule,
     OAuthModule.forRoot( {
       resourceServer: {
-        allowedUrls: ['http://localhost:3000/api'],
+        allowedUrls: ['http://10.77.3.117:3000/api'],
         sendAccessToken: true
       }
     })

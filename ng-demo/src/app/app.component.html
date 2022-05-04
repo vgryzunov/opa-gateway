@@ -1,20 +1,31 @@
-<div style="text-align:center"class="container">
-  <h1>
-    Welcome {{title}}!
-  </h1>
-  <div class="container">
+<div class="ui raised container segment">
+  <h2 class="ui header">
+    {{title}}
+  </h2>
+  <div class="ui container">
 
-    <button type="button" (click)="doGet()"> </button>
-    <div *ngIf="loading">loading...</div>
-
-    <button class="btn btn-default" (click)="login()">
+    <button *ngIf="!hasValidAccessToken()" class="ui positive button left" (click)="login()">
       Login
     </button>
-    <button class="btn btn-default" (click)="logoff()">
+    <button *ngIf="hasValidAccessToken()" class="ui positive button floating right" (click)="logoff()">
       Logout
     </button>
 
-    <p>Id: <span>{{id}}</span></p>
-    <p>Message: <span>{{content}}!</span></p>
+    <div class="ui divider"></div>
+    <div class="ui segment">
+      <div *ngIf="loading" class="ui active inverted dimmer">
+        <div class="ui text loader">Loading</div>
+                </div>
+        <p>Id: <span>{{id}}</span></p>
+        <p>Message: <span>{{content}}!</span></p>
+
+        <button type="button" class="ui small positive button" (click)="doGet()">
+          Hello There!
+        </button>
+
+
+    </div>
+
+
   </div>
 </div>

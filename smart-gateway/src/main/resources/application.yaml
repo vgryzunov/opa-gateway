@@ -36,21 +36,22 @@ spring:
           keycloak2:
             provider: keycloak
             client-id: smart-gateway
-            client-secret: 9Nu9ar5UPT7VB0tTmMRFQSX0WLQopq3q
+            client-secret: 21MJSSiKVdAkWlfFPwenkUGRciNRY3AB
             scope:
               - openid
               - profile
               - email
               - offline_access
             authorization-grant-type: authorization_code
-            redirect-uri: http://localhost:3000/ng
+            redirect-uri: "{baseUrl}/login/oauth2/code/keycloak2"
+            #redirect-uri: http://10.77.3.117:3000/ng
 
         provider:
           keycloak:
-            issuer-uri: http://localhost:3000/iam/auth/realms/demo
-            token-uri: http://localhost:3000/iam/auth/realms/demo/protocol/openid-connect/token
-            authorization-uri: http://localhost:3000/iam/auth/realms/demo/protocol/openid-connect/auth
-            user-info-uri: http://localhost:3000/iam/auth/realms/demo/protocol/openid-connect/userinfo
+            issuer-uri: http://my-wst:3000/iam/auth/realms/demo
+            token-uri: http://my-wst:3000/iam/auth/realms/demo/protocol/openid-connect/token
+            authorization-uri: http://my-wst:3000/iam/auth/realms/demo/protocol/openid-connect/auth
+            user-info-uri: http://my-wst:3000/iam/auth/realms/demo/protocol/openid-connect/userinfo
             user-name-attribute: preferred_username
 
   cloud:
@@ -59,7 +60,7 @@ spring:
         add-to-simple-url-handler-mapping: true
         corsConfigurations:
           '[/**]':
-            allowedOrigins: "http://localhost:3000"
+            allowedOrigins: "http://10.77.3.117:3000"
             allowedHeaders: "*"
             allowedMethods:
               - GET
@@ -79,7 +80,7 @@ spring:
             - RemoveRequestHeader=Cookie
             - RequestPolicyFilterFactory
         - id: hello
-          uri: "http://localhost:9000/"
+          uri: "http://my-wst:9010/"
           predicates:
             - Path=/hello
           filters:
