@@ -4,10 +4,14 @@ import { OAuthModule } from 'angular-oauth2-oidc'
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthConfigModule } from "./init.module";
+import { HelloDemo } from './hello-demo/hello-demo.component';
+import { MeetingsDemoComponent } from './meetings-demo/meetings-demo.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HelloDemo,
+    MeetingsDemoComponent
   ],
   imports: [
     BrowserModule,
@@ -15,7 +19,7 @@ import { AuthConfigModule } from "./init.module";
     HttpClientModule,
     OAuthModule.forRoot( {
       resourceServer: {
-        allowedUrls: ['http://localhost:3000/api'],
+        allowedUrls: ['http://10.77.3.117:3000/api'],
         sendAccessToken: true
       }
     })

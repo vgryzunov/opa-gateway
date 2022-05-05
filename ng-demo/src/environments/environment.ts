@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 let clientId ='smart-gateway';
-let issuer = 'http://localhost:3000/iam/auth/realms/demo';
+let issuer = 'http://my-wst:3000/iam/auth/realms/demo';
 //let logoutUrl = "https://localhost:3000/iam/idp/demo/logout.html?ClientID=";
 
 
@@ -12,7 +12,7 @@ export const environment = {
   idp: {
     issuer: issuer,
     redirectUri: window.location.origin + '/ng/',
-    clientId: clientId,
+    clientId: 'ng-ui-client',
     scope: 'openid profile email offline_access',
     responseType: 'code',
     disableAtHashCheck: true,

@@ -7,10 +7,10 @@ const app = express();
 
 // Configuration
 const PORT = 3000;
-const HOST = "localhost";
+const HOST = "10.77.3.117";
 
-const KEYCLOAK_SERVER_URL = "http://192.168.49.2:30355";
-const NG_URL = "http://localhost:4200"
+const KEYCLOAK_SERVER_URL = "http://192.168.49.2:31606";
+const NG_URL = "http://10.77.3.117:4200"
 const API_URL = "http://localhost:8888"
 
 app.use(morgan('dev'));
@@ -44,7 +44,7 @@ app.use('/api', createProxyMiddleware({
     target: API_URL,
     changeOrigin: true,
     pathRewrite: {
-        [`^/api`]: '',
+        [`^/api`]: '/api',
     },
     secure: false,
     xfwd: true

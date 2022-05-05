@@ -1,5 +1,5 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
-import { AuthConfigService } from './auth-config.service';
+import { AuthConfigService } from './auth/auth-config.service';
 import { AuthConfig, OAuthModule, OAuthStorage } from "angular-oauth2-oidc";
 import { environment } from "../environments/environment"
 
