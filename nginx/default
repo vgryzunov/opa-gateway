@@ -1,7 +1,7 @@
 
 server {
         listen 3000;
-	rewrite_log on;	
+	    rewrite_log on;
         server_name _;
         proxy_set_header Host $http_host;
         proxy_set_header X-Real-IP $remote_addr;	
