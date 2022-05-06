@@ -42,7 +42,10 @@ cert := { "keys": [key] } {
 # Certuficate as text
 jwks = json.marshal(cert)
 
-jwt_encoded := split(input.headers.authorization[0], " ")[1]
+authorization = input.headers.authorization
+authorization = input.headers.Authorization
+
+jwt_encoded := split(authorization[0], " ")[1]
 token_valid := io.jwt.verify_rs256(jwt_encoded, jwks)
 
 # Helper to get token header and payload.

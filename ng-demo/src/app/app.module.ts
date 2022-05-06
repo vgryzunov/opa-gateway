@@ -19,7 +19,7 @@ import { MeetingsDemoComponent } from './meetings-demo/meetings-demo.component';
     HttpClientModule,
     OAuthModule.forRoot( {
       resourceServer: {
-        allowedUrls: ['http://10.77.3.117:3000/api'],
+        allowedUrls: ['http://my-wst:3000/api'],
         sendAccessToken: true
       }
     })

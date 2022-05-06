@@ -8,6 +8,9 @@ spring:
         jwt:
           jwk-set-uri: http://my-wst:3000/iam/auth/realms/demo/protocol/openid-connect/certs
           issuer-uri: http://my-wst:3000/iam/auth/realms/demo
+  config:
+    activate:
+      on-profile: minikube
 
 logging:
   level:
