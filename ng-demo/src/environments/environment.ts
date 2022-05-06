@@ -2,8 +2,8 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-let clientId ='smart-gateway';
-let issuer = 'http://localhost:3000/iam/auth/realms/demo';
+let clientId ='ng-ui-client';
+let issuer = 'http://localhost:3000/auth/realms/demo';
 //let logoutUrl = "https://localhost:3000/iam/idp/demo/logout.html?ClientID=";
 
 

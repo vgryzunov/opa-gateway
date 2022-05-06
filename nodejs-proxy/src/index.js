@@ -9,7 +9,7 @@ const app = express();
 const PORT = 3000;
 const HOST = "localhost";
 
-const KEYCLOAK_SERVER_URL = "http://192.168.49.2:30355";
+const KEYCLOAK_SERVER_URL = "https://localhost:31972";
 const NG_URL = "http://localhost:4200"
 const API_URL = "http://localhost:8888"
 
@@ -19,11 +19,11 @@ app.get('/info', (req, res, next) => {
     res.send('This is a proxy service which proxies requests for this project.');
 });
 
-app.use('/iam', createProxyMiddleware({
+app.use('/auth', createProxyMiddleware({
     target: KEYCLOAK_SERVER_URL,
     changeOrigin: true,
     pathRewrite: {
-        [`^/iam`]: '/iam',
+        [`^/auth`]: '/auth',
     },
     secure: false,
     xfwd: true

@@ -25,5 +25,5 @@ opa:
         targets:
           - target: certs/data.json
             type: http
-            uri: http://localhost:3000/iam/auth/realms/demo/protocol/openid-connect/certs
+            uri: http://localhost:3000/auth/realms/demo/protocol/openid-connect/certs
 
