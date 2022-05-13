@@ -1,0 +1,17 @@
+<div class="ui container">
+  <h3 class="ui header">
+    Hello-demo
+  </h3>
+  <div class="ui segment">
+    <div *ngIf="loading" class="ui active inverted dimmer">
+      <div class="ui text loader">Loading</div>
+    </div>
+    <p>Id: <span>{{id}}</span></p>
+    <p>Message: <span>{{content}}!</span></p>
+
+    <button type="button" class="ui small positive button" (click)="doGet()">
+      Hello There!
+    </button>
+
+  </div>
+</div>

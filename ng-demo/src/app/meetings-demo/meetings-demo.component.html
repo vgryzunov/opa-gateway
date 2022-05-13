@@ -1,0 +1,33 @@
+<div class="ui container">
+  <h3 class="ui header">
+    Meetings-demo
+  </h3>
+  <div class="ui segment">
+    <div *ngIf="loading" class="ui active inverted dimmer">
+      <div class="ui text loader">Loading</div>
+    </div>
+
+    <button type="button" class="ui small positive button" (click)="getMeetingList()">
+      Get Meetings
+    </button>
+
+    <table class="ui celled table">
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Manager</th>
+        <th>Assignments</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let meeting of meetings">
+        <td data-label="Id">{{meeting.id}}</td>
+        <td data-label="Name">{{meeting.name}}</td>
+        <td data-label="Manager">{{meeting.managerId}}</td>
+        <td data-label="Assignments">{{meeting.assignments.count}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

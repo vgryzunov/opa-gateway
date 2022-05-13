@@ -79,7 +79,7 @@ spring:
             - RemoveRequestHeader=Cookie
             - RequestPolicyFilterFactory
         - id: hello
-          uri: "http://localhost:9000/"
+          uri: "http://localhost:9010/"
           predicates:
             - Path=/hello
           filters:

@@ -1,20 +1,24 @@
-<div style="text-align:center"class="container">
-  <h1>
-    Welcome {{title}}!
-  </h1>
-  <div class="container">
+<div class="ui raised container segment">
+  <h2 class="ui header">
+    {{title}}
+  </h2>
 
-    <button type="button" (click)="doGet()"> </button>
-    <div *ngIf="loading">loading...</div>
+ <div class="ui container">
 
-    <button class="btn btn-default" (click)="login()">
-      Login
-    </button>
-    <button class="btn btn-default" (click)="logoff()">
-      Logout
-    </button>
+   <button *ngIf="!hasValidAccessToken()" class="ui positive button left" (click)="login()">
+     Login
+   </button>
+   <button *ngIf="hasValidAccessToken()" class="ui positive button floating right" (click)="logoff()">
+     Logout
+   </button>
+ </div>
 
-    <p>Id: <span>{{id}}</span></p>
-    <p>Message: <span>{{content}}!</span></p>
-  </div>
+ <div class="ui divider"></div>
+
+ <app-hello-demo [oauthService]="oauthService"></app-hello-demo>
+
+  <div class="ui divider"></div>
+
+  <app-meetings-demo></app-meetings-demo>
+
 </div>
