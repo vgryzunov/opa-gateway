@@ -21,7 +21,12 @@ public class Meeting {
 
     public Meeting(Integer id, String name) {
         this.id = id;
+        this.name = name;
         this.assignments = Collections.synchronizedMap(new HashMap<>());
+    }
+
+    public int getAssignmentsCount() {
+        return assignments.size();
     }
 
     public Meeting assign(Assignment assignment) {
