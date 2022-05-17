@@ -8,6 +8,9 @@ spring:
         jwt:
           jwk-set-uri: http://localhost:3000/auth/realms/demo/protocol/openid-connect/certs
           issuer-uri: http://localhost:3000/auth/realms/demo
+  config:
+    activate:
+      on-profile: win10
 
 logging:
   level:

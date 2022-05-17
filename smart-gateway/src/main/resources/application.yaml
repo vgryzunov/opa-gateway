@@ -29,30 +29,6 @@ spring:
   application:
     name: policy-gateway
 
-  security:
-    oauth2:
-      client:
-        registration:
-          keycloak2:
-            provider: keycloak
-            client-id: smart-gateway
-            client-secret: ZV2DOaDYq1kQd38QPqDGo6br0Sne1sG1
-            scope:
-              - openid
-              - profile
-              - email
-              - offline_access
-            authorization-grant-type: authorization_code
-            redirect-uri: http://localhost:3000/api/login/oauth2/code/keycloak2
-
-        provider:
-          keycloak:
-            issuer-uri: http://localhost:3000/auth/realms/demo
-            token-uri: http://localhost:3000/auth/realms/demo/protocol/openid-connect/token
-            authorization-uri: http://localhost:3000/auth/realms/demo/protocol/openid-connect/auth
-            user-info-uri: http://localhost:3000/auth/realms/demo/protocol/openid-connect/userinfo
-            user-name-attribute: preferred_username
-
   cloud:
     gateway:
       globalcors:
@@ -84,7 +60,7 @@ spring:
             - Path=/hello
           filters:
             - SetPath=/hello
-            - RemoveRequestHeader=Cookie
+            #- RemoveRequestHeader=Cookie
             - RequestPolicyFilterFactory
         - id: meeting-list
           uri: "http://localhost:9000/"

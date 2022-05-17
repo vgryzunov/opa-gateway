@@ -13,7 +13,7 @@ const KEYCLOAK_SERVER_URL = "https://localhost:31972";
 const NG_URL = "http://localhost:4200"
 const API_URL = "http://localhost:8888"
 
-app.use(morgan('dev'));
+app.use(morgan(':method :url :req[authorization] :status :res[content-length] - :response-time ms'));
 
 app.get('/info', (req, res, next) => {
     res.send('This is a proxy service which proxies requests for this project.');
@@ -47,7 +47,7 @@ app.use('/api', createProxyMiddleware({
         [`^/api`]: '',
     },
     secure: false,
-    xfwd: true
+    xfwd: true,
 }));
 
 app.use('/oauth2/authorization/keycloak2', createProxyMiddleware({

@@ -8,18 +8,18 @@ let issuer = 'http://localhost:3000/auth/realms/demo';
 
 
 export const environment = {
-  production: false,
-  idp: {
-    issuer: issuer,
-    redirectUri: window.location.origin + '/ng/',
-    clientId: clientId,
-    scope: 'openid profile email offline_access',
-    responseType: 'code',
-    disableAtHashCheck: true,
-    showDebugInformation: true,
-    requireHttps: false,
-    strictDiscoveryDocumentValidation: false
-  },
+    production: false,
+    idp: {
+        issuer: issuer,
+        redirectUri: window.location.origin + '/ng/',
+        clientId: clientId,
+        scope: 'openid profile email offline_access',
+        responseType: 'code',
+        disableAtHashCheck: true,
+        showDebugInformation: true,
+        requireHttps: false,
+        strictDiscoveryDocumentValidation: false
+    },
 };
 
 /*

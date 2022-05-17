@@ -61,6 +61,20 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
+            },
+            "win10": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.win10.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -73,6 +87,9 @@
             },
             "development": {
               "browserTarget": "ng-demo:build:development"
+            },
+            "win10": {
+            "browserTarget": "ng-demo:build:development"
             }
           },
           "defaultConfiguration": "development"
