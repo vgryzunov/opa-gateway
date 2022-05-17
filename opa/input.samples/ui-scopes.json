@@ -1,0 +1,51 @@
+{
+  "uid": "component-id",
+  "components": [
+    {
+      "selector": "meeting-list",
+      "scopes": [
+        "view",
+        "edit",
+        "add"
+      ]
+    },
+    {
+      "selector": "assignment-details",
+      "scopes": [
+        "view",
+        "edit"
+      ]
+    },
+    {
+      "selector": "navigator",
+      "root": [
+        {
+          "disableHighlight": null,
+          "mobile": true,
+          "Code": "sys_myTasksNew",
+          "Url": "/str/main/#/app/main",
+          "System": "STR",
+          "TargetBlank": false,
+          "Name": "Главная",
+          "sortValue": "100",
+          "deleted": 0,
+          "id": "2afebb5b-b1c5-41a3-89b7-e9b19c2bbd37",
+          "Icon": "fas fa-home-alt"
+        },
+        {
+          "disableHighlight": null,
+          "mobile": true,
+          "Code": "str_tasks",
+          "Url": "/str/main/#/app/tasks/showcase",
+          "System": "STR",
+          "TargetBlank": false,
+          "Name": "Мои задачи",
+          "sortValue": "112",
+          "deleted": 0,
+          "id": "b8ec14a5-8fd0-4d17-9994-8a86a8b2ca87",
+          "Icon": "fas fa-inbox"
+        }
+      ]
+    }
+  ]
+}
