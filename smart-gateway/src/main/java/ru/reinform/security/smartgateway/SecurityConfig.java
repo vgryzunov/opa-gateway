@@ -22,21 +22,19 @@ public class SecurityConfig {
     @Bean
     public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) {
         http.csrf().disable();
+        http.formLogin().disable();
+        http.logout().disable();
+        http.httpBasic().disable();
 
-        http.authorizeExchange()
-                //.pathMatchers("/hello").permitAll()
-             .and()
-                .authorizeExchange(
-                        exchanges -> exchanges.anyExchange()
-                                .authenticated()
-                                .and()
-                                .oauth2Login()
-                                .and()
-                                .oauth2Client()
+        http.authorizeExchange(
+                        exchanges -> exchanges.anyExchange().permitAll()
+                        //.authenticated()
+                        //.and().oauth2Login()
+                        //.and().oauth2Client()
                 )
                 .exceptionHandling()
-                //.exceptionHandling(ex -> ex.authenticationEntryPoint( new RedirectServerAuthenticationEntryPoint("/login")))
-                //.authenticationEntryPoint(new CustomAuthenticationEntryPoint(HttpStatus.UNAUTHORIZED, responseBody))
+        //.exceptionHandling(ex -> ex.authenticationEntryPoint( new RedirectServerAuthenticationEntryPoint("/login")))
+        //.authenticationEntryPoint(new CustomAuthenticationEntryPoint(HttpStatus.UNAUTHORIZED, responseBody))
         ;
 
         return http.build();

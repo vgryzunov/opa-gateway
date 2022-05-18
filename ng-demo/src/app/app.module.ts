@@ -3,9 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { OAuthModule } from 'angular-oauth2-oidc'
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { AuthConfigModule } from "./init.module";
+import { AuthConfigModule } from "./auth/auth.module";
 import { HelloDemo } from './hello-demo/hello-demo.component';
 import { MeetingsDemoComponent } from './meetings-demo/meetings-demo.component';
+import {environment} from "../environments/environment";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { MeetingsDemoComponent } from './meetings-demo/meetings-demo.component';
     HttpClientModule,
     OAuthModule.forRoot( {
       resourceServer: {
-        allowedUrls: ['http://my-wst:3000/api'],
+        allowedUrls: [environment.apiUrl],
         sendAccessToken: true
       }
     })

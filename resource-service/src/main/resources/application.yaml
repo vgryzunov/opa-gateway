@@ -21,3 +21,29 @@ logging:
     org.springframework.security: DEBUG
     org.springframework.security.oauth2: DEBUG
     org.springframework.security.oauth2.jwt: DEBUG
+
+---
+
+server:
+  port: 9000
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:3000/auth/realms/demo/protocol/openid-connect/certs
+          issuer-uri: http://localhost:3000/auth/realms/demo
+  config:
+    activate:
+      on-profile: win10
+
+logging:
+  level:
+    root: INFO
+    ru.reinform.demo: TRACE
+    org.springframework.web: INFO
+    org.springframework.web.HttpLogging: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.security.oauth2: DEBUG
+    org.springframework.security.oauth2.jwt: DEBUG

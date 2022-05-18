@@ -42,6 +42,7 @@ cert := { "keys": [key] } {
 # Certificate as text
 jwks = json.marshal(cert)
 
+# case-insensitive
 authorization = input.headers.authorization
 authorization = input.headers.Authorization
 

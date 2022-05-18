@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {OAuthService} from "angular-oauth2-oidc";
 import {HttpClient} from "@angular/common/http";
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'app-meetings-demo',
@@ -21,7 +22,7 @@ export class MeetingsDemoComponent implements OnInit {
     console.log("==> oauthService.hasValidAccessToken: " + this.oauthService?.hasValidAccessToken());
     console.log("==> START LOADING DATA...");
     this.loading = true;
-    this.http.get<any>('http://my-wst:3000/api/meetings').subscribe(data => {
+    this.http.get<any>(environment.apiUrl + 'meetings').subscribe(data => {
         console.log('==> DATA: ' + JSON.stringify(data))
         this.loading = false;
         this.meetings = data;

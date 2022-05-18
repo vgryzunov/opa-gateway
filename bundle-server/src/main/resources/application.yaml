@@ -1,3 +1,8 @@
+spring:
+  config:
+    activate:
+      on-profile: minikube
+
 server:
   port: 8081
 
@@ -27,3 +32,38 @@ opa:
             type: http
             uri: http://my-wst:3000/iam/auth/realms/demo/protocol/openid-connect/certs
 
+---
+
+spring:
+  config:
+    activate:
+      on-profile: win10
+
+server:
+  port: 8081
+
+opa:
+  bundle:
+    revision: 0.0.1
+    roots:
+      - name: "rules"
+        targets:
+          - target: rules/data.json
+            type: resource
+            uri:  opa/rules/data.json
+      - name: "authz"
+        targets:
+          - target: authz/authorized.rego
+            type: resource
+            uri: opa/authz/authorized.rego
+          - target: authz/resources_allowed.rego
+            type: resource
+            uri:  opa/authz/resources_allowed.rego
+      #         - target: rules/debug.rego
+      #           type: file
+      #           uri: /home/valery/IdeaProjects/github.com/vgryzunov/smart-gateway/opa/bundle/policies/debug.rego
+      - name: "certs"
+        targets:
+          - target: certs/data.json
+            type: http
+            uri: http://localhost:3000/auth/realms/demo/protocol/openid-connect/certs
