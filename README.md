@@ -5,7 +5,7 @@ The following technologies are used:
 
 - Spring Cloud Gateway to implement Policy Enforcer Point
 - Open Policy Agent (OPA) https://www.openpolicyagent.org/ as a policy application engine
-- Angular-oauth2-oidc for authentication in Angular UI
+- Angular-oauth2-oidc (https://www.npmjs.com/package/angular-oauth2-oidc) for authentication in Angular UI
 - Spring boot to implement (simple) Bundle server used to provide policies to OPA. 
 - Spring Boot for resource services
 - Keycloak server installed in k8s (minikube or docker desktop) for Oauth2 authentication
