@@ -75,3 +75,44 @@ test_roles_allowed {
                      ]
 }
 
+test_username {
+    jwt.payload.preferred_username = "ivanov1"
+    with input as {
+                        "headers": { "Authorization": [ auth_header ] }
+                   }
+    with data.certs as data_certs
+}
+
+
+test_authorized_ok {
+    authorized = { "allowed": true, "name": "ivanov1", "tokenValid": true }
+    with input as {
+                        "headers": { "Authorization": [ auth_header ],
+                        "path": [
+                                                       "http:",
+                                                       "",
+                                                       "localhost:8888",
+                                                       "meetings"
+                                                     ],
+                                              "method": "GET"}
+                   }
+    with data.certs as data_certs
+    with data.rules.resources as [
+                       {
+                         "name": "assignments",
+                         "methods": ["GET"],
+                         "roles": [
+                             "staff",
+                             "managers"
+                           ]
+                         },
+                       {
+                         "name": "meetings",
+                         "methods": ["GET"],
+                         "roles": [
+                           "staff",
+                           "managers"
+                         ]
+                       }
+                     ]
+}

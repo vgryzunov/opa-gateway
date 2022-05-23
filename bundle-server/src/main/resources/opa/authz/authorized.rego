@@ -10,10 +10,16 @@ import data.certs
 # allowed - acces is allowed
 # name - subject name from JWT
 # tokenValid - token is verified
-default authorized = { "allowed" : false, "name" : null, "tokenValid": false}
 
-authorized = { "allowed": true, "name": jwt.payload.preferred_username,
-               "tokenValid": token_valid} {
+authorized = { "allowed": allowed, "name": jwt.payload.preferred_username,
+               "tokenValid": token_valid } {
+	some i
+	client_roles[i] == roles_allowed[_]
+}
+
+
+default allowed = false
+allowed {
 	some i
 	client_roles[i] == roles_allowed[_]
 }
@@ -39,10 +45,9 @@ cert := { "keys": [key] } {
     key := certs.keys[i]
 }
 
-# Certificate as text
+# Certuficate as text
 jwks = json.marshal(cert)
 
-# case-insensitive
 authorization = input.headers.authorization
 authorization = input.headers.Authorization
 
