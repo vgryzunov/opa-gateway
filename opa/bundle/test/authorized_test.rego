@@ -19,9 +19,15 @@ data_certs := {
                 ]
               }
 
-test_jwt_encoded {
+test_jwt_encoded_upper_case {
     jwt_encoded == "xyz" with input as {
                           "headers": { "Authorization": [ "Bearer xyz" ] }
+                        }
+}
+
+test_jwt_encoded_lower_case {
+    jwt_encoded == "xyz" with input as {
+                          "headers": { "authorization": [ "Bearer xyz" ] }
                         }
 }
 
@@ -52,7 +58,7 @@ test_roles_allowed {
                   with data.rules.resources as [
                        {
                          "name": "assignments",
-                         "method": "GET",
+                         "methods": ["GET"],
                          "roles": [
                              "staff",
                              "managers"
@@ -60,7 +66,7 @@ test_roles_allowed {
                          },
                        {
                          "name": "meetings",
-                         "method": "GET",
+                         "methods": ["GET"],
                          "roles": [
                            "staff",
                            "managers"
@@ -68,3 +74,4 @@ test_roles_allowed {
                        }
                      ]
 }
+
