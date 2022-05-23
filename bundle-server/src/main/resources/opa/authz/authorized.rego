@@ -12,11 +12,7 @@ import data.certs
 # tokenValid - token is verified
 
 authorized = { "allowed": allowed, "name": jwt.payload.preferred_username,
-               "tokenValid": token_valid } {
-	some i
-	client_roles[i] == roles_allowed[_]
-}
-
+               "tokenValid": token_valid }
 
 default allowed = false
 allowed {
@@ -45,7 +41,7 @@ cert := { "keys": [key] } {
     key := certs.keys[i]
 }
 
-# Certuficate as text
+# Certificate as text
 jwks = json.marshal(cert)
 
 authorization = input.headers.authorization
@@ -58,4 +54,10 @@ token_valid := io.jwt.verify_rs256(jwt_encoded, jwks)
 jwt = {"header": header, "payload": payload} {
 	[header, payload, _] := io.jwt.decode(jwt_encoded)
 }
+
+
+
+
+
+
 

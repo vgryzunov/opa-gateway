@@ -12,16 +12,12 @@ import data.certs
 # tokenValid - token is verified
 
 authorized = { "allowed": allowed, "name": jwt.payload.preferred_username,
-               "tokenValid": token_valid } {
-	some i
-	client_roles[i] == roles_allowed[_]
-}
-
+               "tokenValid": token_valid }
 
 default allowed = false
 allowed {
-	some i
-	client_roles[i] == roles_allowed[_]
+	some i, j
+	client_roles[i] == roles_allowed[j]
 }
 
 # OIDC client
