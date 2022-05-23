@@ -11,7 +11,7 @@ import data.certs
 # name - subject name from JWT
 # tokenValid - token is verified
 
-authorized = { "allowed": allowed, "name": jwt.payload.preferred_username,
+authorized = { "allowed": allowed, "name": user_name,
                "tokenValid": token_valid }
 
 default allowed = false
@@ -48,7 +48,12 @@ authorization = input.headers.authorization
 authorization = input.headers.Authorization
 
 jwt_encoded := split(authorization[0], " ")[1]
-token_valid := io.jwt.verify_rs256(jwt_encoded, jwks)
+
+default user_name = ""
+user_name = jwt.payload.preferred_username
+
+default token_valid = false
+token_valid = io.jwt.verify_rs256(jwt_encoded, jwks)
 
 # Helper to get token header and payload.
 jwt = {"header": header, "payload": payload} {

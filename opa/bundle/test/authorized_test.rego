@@ -159,3 +159,19 @@ test_authorized_no_access {
     with data.rules.resources as []
     with data.certs as data_certs
 }
+
+test_authorized_invalid_token {
+    authorized = { "allowed": false, "name": undefined, "tokenValid": false }
+    with input as {
+        "path": [
+              "http:",
+              "",
+              "localhost:8888",
+              "assignments"
+            ],
+        "method": "GET",
+        "headers": { "Authorization": [ "bearer xyz" ] }
+        }
+    with data.rules.resources as []
+    with data.certs as data_certs
+}
